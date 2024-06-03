@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DetailActivity">
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/rounded_gray2"
+        android:contentDescription="@string/icon"
+        android:padding="8dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_result_skin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_result_skin" />
+
+    <Button
+        android:id="@+id/btn_result_skin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/result_skin"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_colorprimary3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_result_skin">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/logo_app"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/type_skin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_gray"
+                android:padding="4dp"
+                android:text="@string/type_skintone"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+
+            <ImageView
+                android:id="@+id/iv_type_skin"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="78dp"
+                android:src="@drawable/ic_circle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/type_skin" />
+
+            <TextView
+                android:id="@+id/tv_title_type_skintone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/result_skintone"
+                android:textColor="@color/text_color"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@+id/iv_type_skin"
+                app:layout_constraintTop_toTopOf="@+id/iv_type_skin" />
+
+            <TextView
+                android:id="@+id/tv_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/light"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_title_type_skintone"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_type_skintone" />
+
+            <TextView
+                android:id="@+id/color_palette"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@drawable/rounded_gray"
+                android:padding="4dp"
+                android:text="@string/color_palette"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_type_skin" />
+
+
+            <FrameLayout
+                android:id="@+id/frameLayout5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/color_palette">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/iv_color_palette1"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:src="@drawable/ic_circle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_color_name1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_pink"
+                        android:text="@string/black"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="@+id/iv_color_palette1"
+                        app:layout_constraintStart_toStartOf="@+id/iv_color_palette1"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_color_palette1" />
+
+                    <TextView
+                        android:id="@+id/tv_color_code1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/color_code_black"
+                        android:textColor="@color/text_color"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_color_name1"
+                        app:layout_constraintStart_toStartOf="@+id/tv_color_name1"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_color_name1" />
+
+                    <ImageView
+                        android:id="@+id/iv_color_palette2"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_circle"
+                        app:layout_constraintStart_toEndOf="@+id/iv_color_palette1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_color_name2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_pink"
+                        android:text="@string/cream"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="@+id/iv_color_palette2"
+                        app:layout_constraintStart_toStartOf="@+id/iv_color_palette2"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_color_palette2" />
+
+                    <TextView
+                        android:id="@+id/tv_color_code2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/color_code_cream"
+                        android:textColor="@color/text_color"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_color_name2"
+                        app:layout_constraintStart_toStartOf="@+id/tv_color_name2"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_color_name2" />
+
+                    <ImageView
+                        android:id="@+id/iv_color_palette3"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_circle"
+                        app:layout_constraintStart_toEndOf="@+id/iv_color_palette2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_color_name3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_pink"
+                        android:text="@string/grey"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="@+id/iv_color_palette3"
+                        app:layout_constraintStart_toStartOf="@+id/iv_color_palette3"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_color_palette3" />
+
+                    <TextView
+                        android:id="@+id/tv_color_code3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/color_code_grey"
+                        android:textColor="@color/text_color"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_color_name3"
+                        app:layout_constraintStart_toStartOf="@+id/tv_color_name3"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_color_name3" />
+
+                    <ImageView
+                        android:id="@+id/iv_color_palette4"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_circle"
+                        app:layout_constraintStart_toEndOf="@+id/iv_color_palette3"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_color_name4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_pink"
+                        android:text="@string/maroon"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="@+id/iv_color_palette4"
+                        app:layout_constraintStart_toStartOf="@+id/iv_color_palette4"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_color_palette4" />
+
+                    <TextView
+                        android:id="@+id/tv_color_code4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/color_code_maroon"
+                        android:textColor="@color/text_color"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_color_name4"
+                        app:layout_constraintStart_toStartOf="@+id/tv_color_name4"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_color_name4" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/color_jewerly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_gray"
+                android:padding="4dp"
+                android:text="@string/color_jewelry"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout5" />
+
+            <ImageView
+                android:id="@+id/iv_color_jewerly"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_circle"
+                app:layout_constraintStart_toStartOf="@+id/color_jewerly"
+                app:layout_constraintTop_toBottomOf="@+id/color_jewerly" />
+
+            <TextView
+                android:id="@+id/tv_result_jewerly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/result_jewerly"
+                android:textColor="@color/text_color"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.164"
+                app:layout_constraintStart_toEndOf="@+id/iv_color_jewerly"
+                app:layout_constraintTop_toTopOf="@+id/iv_color_jewerly" />
+
+            <TextView
+                android:id="@+id/tv_color2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gold"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_result_jewerly"
+                app:layout_constraintTop_toBottomOf="@+id/tv_result_jewerly" />
+
+            <Button
+                android:id="@+id/btn_add_favorites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:drawableLeft="@drawable/ic_love2"
+                android:text="@string/add_result"
+                android:textColor="@color/red"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_color_jewerly" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

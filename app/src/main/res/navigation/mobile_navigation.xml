@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.skintone.me.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_camera"
+        android:name="com.skintone.me.ui.camera.CameraFragment"
+        android:label="@string/title_camera"
+        tools:layout="@layout/activity_camera" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.skintone.me.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <activity
+        android:id="@+id/cameraActivity"
+        android:name="com.skintone.me.ui.camera.CameraActivity"
+        android:label="@string/title_camera"
+        tools:layout="@layout/activity_camera" />
+    <fragment
+        android:id="@+id/storyFragment1"
+        android:name="com.skintone.me.ui.story1.StoryFragment1"
+        android:label="fragment_story1"
+        tools:layout="@layout/fragment_story1" />
+    <fragment
+        android:id="@+id/storyFragment2"
+        android:name="com.skintone.me.ui.story1.StoryFragment2"
+        android:label="fragment_story2"
+        tools:layout="@layout/fragment_story2" />
+    <fragment
+        android:id="@+id/storyFragment3"
+        android:name="com.skintone.me.ui.story1.StoryFragment3"
+        android:label="fragment_story3"
+        tools:layout="@layout/fragment_story3" />
+    <fragment
+        android:id="@+id/storyFragment4"
+        android:name="com.skintone.me.ui.story2.StoryFragment4"
+        android:label="fragment_story4"
+        tools:layout="@layout/fragment_story4" />
+    <fragment
+        android:id="@+id/storyFragment5"
+        android:name="com.skintone.me.ui.story2.StoryFragment5"
+        android:label="fragment_story5"
+        tools:layout="@layout/fragment_story5" />
+    <fragment
+        android:id="@+id/storyFragment6"
+        android:name="com.skintone.me.ui.story2.StoryFragment6"
+        android:label="fragment_story6"
+        tools:layout="@layout/fragment_story6" />
+    <fragment
+        android:id="@+id/storyFragment7"
+        android:name="com.skintone.me.ui.story3.StoryFragment7"
+        android:label="fragment_story7"
+        tools:layout="@layout/fragment_story7" />
+    <fragment
+        android:id="@+id/storyFragment8"
+        android:name="com.skintone.me.ui.story3.StoryFragment8"
+        android:label="fragment_story8"
+        tools:layout="@layout/fragment_story8" />
+    <fragment
+        android:id="@+id/storyFragment9"
+        android:name="com.skintone.me.ui.story3.StoryFragment9"
+        android:label="fragment_story9"
+        tools:layout="@layout/fragment_story9" />
+
+</navigation>

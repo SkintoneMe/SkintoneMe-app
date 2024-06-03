@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">Skintone.me</string>
+
+    <string name="logo">logo</string>
+    <string name="next">next</string>
+    <string name="favorite">favorite</string>
+    <string name="icon">icon</string>
+    <string name="icon_skin_profile">icon skin profile</string>
+
+    <string name="title_slider1">Welcome to\nSkintone.Me!</string>
+    <string name="title_slider2">Let’s Analyze\nYour Skin!</string>
+    <string name="title_slider3">Get to Know Your\n Skintone, Now!</string>
+
+    <string name="description_slider1">Skintone.Me is here to give you the best impression in\n helping you analyze your skin tone to ensure the\n harmony of your appearance.</string>
+    <string name="description_slider2">With several advanced features that can help analyze\n your skin tone and provide color palette\n recommendations that you can try.</string>
+    <string name="description_slider3">Explore and get to know your skin tone well for a\n stunning look of yourself based on the appropriate\n recommended color.</string>
+
+    <string name="title_image_slider1">Explore your Natural\n Beauty with  Skin Tone\n Analysis that Reveals\n your Uniqueness.</string>
+    <string name="title_image_slider2">Your Skin Tone is a Unique Canvas, and Skin Tone Analysis is the Brush.</string>
+    <string name="title_image_slider3">Skin Tone analysis is a Liberating Journey Into the True Essence of Beauty.</string>
+
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create Your Account</string>
+    <string name="welcome">Welcome</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="gender">Gender</string>
+    <string name="or">or</string>
+    <string name="dont_have_account">Dont have Account?</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_camera">Analyze</string>
+    <string name="title_profile">Profile</string>
+
+    <string name="hi">Hi, Name</string>
+    <string name="identify">Identify your Skin Tone and Start Analyzing it</string>
+    <string name="analyze">Analyze Your Skin, Now!</string>
+
+    <string name="undertone">Undertone\n Vs\n Skintone</string>
+    <string name="how_know">How to\n Know your\n Skin Tone</string>
+    <string name="how_care">How\n to Care\n Skin Tone</string>
+    <string name="important">Important Things\n You Should Know</string>
+
+    <string name="analyze_your_skin">Analyze Your Skin</string>
+    <string name="text_camera">Make Sure Nothing is Blocking your Face</string>
+
+    <string name="my_profile">My Profile</string>
+    <string name="language">Language</string>
+    <string name="logout">Logout</string>
+    <string name="delete_account"><u>Delete Account</u></string>
+    <string name="profile">profile</string>
+
+    <string name="my_favorite">My Favorite</string>
+    <string name="skintone">skintone</string>
+    <string name="color_palette">palette</string>
+    <string name="jewelry_color">jewelry</string>
+
+    <string name="result_skin">Result Skin Analyze</string>
+    <string name="type_skintone">Type of Skintone</string>
+    <string name="color_jewelry">Color Jewelry of Me</string>
+    <string name="remove_result">Remove The Result to Favorite</string>
+    <string name="add_result">Add The Result to Favorites</string>
+
+    <string name="result_skintone">The Result of My Skintone is</string>
+    <string name="light">Light</string>
+    <string name="result_jewerly">The Result of My Color Jewelry is</string>
+    <string name="gold">Gold</string>
+    <string name="black">Black</string>
+    <string name="color_code_black">#5BF36J</string>
+    <string name="cream">Cream</string>
+    <string name="color_code_cream">#3D45AG</string>
+    <string name="maroon">Maroon</string>
+    <string name="color_code_maroon">#4AF56A</string>
+    <string name="grey">Grey</string>
+    <string name="color_code_grey">#3A475A</string>
+
+    <string name="type_skin_tone">Type of Skin Tone</string>
+    <string name="mid_light">Mid Light</string>
+    <string name="mid_dark">Mid Dark</string>
+    <string name="dark">Dark</string>
+    <string name="light_description">Light skin goes well with bright or pastel colors that highlight its softness and elegance. Contrasting colors like navy or burgundy can also make it look attractive.</string>
+    <string name="mid_light_description">People with mid-light skin go well with neutrals like beige or soft grey, as well as colors like peach, lavender, or dusty rose for a fresh look.</string>
+    <string name="mid_dark_description">People with mid dark skin suit rich colors like olive, chocolate brown, and maroon, as well as metallics like gold or silver for an elegant and warm appearance.</string>
+    <string name="dark_description">People with dark skin go well with striking colors like red, yellow, emerald green, and cobalt blue, as well as neutrals like dark brown or black for a charming and elegant look.</string>
+    <string name="what_skin_felling">What’s Your Skin\n Feeling Today?</string>
+    <string name="excited">Excited</string>
+    <string name="happy">Happy</string>
+    <string name="neutral">Neutral</string>
+    <string name="bad">Bad</string>
+
+    <string-array name="language_array">
+        <item>Indonesia</item>
+        <item>English</item>
+    </string-array>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
