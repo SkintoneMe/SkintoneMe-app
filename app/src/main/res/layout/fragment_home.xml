@@ -171,13 +171,18 @@
 
                            <Button
                                android:id="@+id/btn_readmore"
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
+                               android:layout_width="170dp"
+                               android:layout_height="120dp"
                                android:layout_marginTop="24dp"
+                               android:layout_marginStart="8dp"
                                android:backgroundTint="@color/colorPrimary2"
+                               android:drawableEnd="@drawable/img1"
                                android:text="@string/undertone"
+                               android:textAlignment="textStart"
                                android:textColor="@color/black"
-                               app:layout_constraintStart_toStartOf="@+id/analyze"
+                               android:textSize="11sp"
+                               android:textStyle="bold"
+                               app:layout_constraintStart_toStartOf="parent"
                                app:layout_constraintTop_toBottomOf="@+id/analyze" />
 
                            <ImageView
@@ -196,6 +201,7 @@
                                android:text="@string/important"
                                android:textColor="@color/black"
                                android:textSize="11sp"
+                               android:textStyle="bold"
                                app:layout_constraintBottom_toTopOf="@+id/btn_readmore2"
                                app:layout_constraintEnd_toEndOf="parent"
                                app:layout_constraintHorizontal_bias="0.509"
@@ -205,25 +211,36 @@
 
                            <Button
                                android:id="@+id/btn_readmore2"
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
+                               android:layout_width="170dp"
+                               android:layout_height="120dp"
+                               android:layout_marginStart="8dp"
                                android:layout_marginTop="16dp"
                                android:backgroundTint="@color/pink2"
+                               android:drawableLeft="@drawable/img2"
                                android:text="@string/how_know"
+                               android:textAlignment="textEnd"
                                android:textColor="@color/black"
-                               app:layout_constraintStart_toStartOf="@+id/btn_readmore"
+                               android:textSize="11sp"
+                               android:textStyle="bold"
+                               app:layout_constraintStart_toStartOf="parent"
                                app:layout_constraintTop_toBottomOf="@+id/btn_readmore" />
 
                            <Button
                                android:id="@+id/btn_readmore3"
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="@string/how_care"
-                               android:textColor="@color/black"
+                               android:layout_width="170dp"
+                               android:layout_height="120dp"
+                               android:layout_marginEnd="4dp"
                                android:backgroundTint="@color/colorPrimary"
-                               app:layout_constraintEnd_toEndOf="@+id/btn_2"
-                               app:layout_constraintStart_toStartOf="@+id/btn_2"
-                               app:layout_constraintTop_toTopOf="@+id/btn_readmore2" />
+                               android:drawableLeft="@drawable/img3"
+                               android:text="@string/how_care"
+                               android:textAlignment="textEnd"
+                               android:textColor="@color/black"
+                               android:textSize="11sp"
+                               android:textStyle="bold"
+                               app:layout_constraintBottom_toBottomOf="@+id/btn_readmore2"
+                               app:layout_constraintEnd_toEndOf="parent"
+                               app:layout_constraintTop_toTopOf="@+id/btn_readmore2"
+                               app:layout_constraintVertical_bias="0.0" />
 
                            <TextView
                                android:id="@+id/type_skin_tone"
@@ -355,6 +372,7 @@
                                android:id="@+id/tv_description_dark"
                                android:layout_width="0dp"
                                android:layout_height="wrap_content"
+                               android:textSize="12sp"
                                android:text="@string/dark_description"
                                app:layout_constraintEnd_toEndOf="parent"
                                app:layout_constraintStart_toStartOf="@+id/tv_title_dark"
