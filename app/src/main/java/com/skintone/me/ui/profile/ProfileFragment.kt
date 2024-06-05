@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.skintone.me.databinding.FragmentProfileBinding
-import com.skintone.me.ui.LoginActivity
+import com.skintone.me.login.LoginActivity
 
 class ProfileFragment : Fragment() {
 

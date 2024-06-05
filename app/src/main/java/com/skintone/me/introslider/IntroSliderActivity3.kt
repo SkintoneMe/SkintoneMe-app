@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.skintone.me.R
 import com.skintone.me.databinding.ActivityIntroSlider3Binding
-import com.skintone.me.ui.LoginActivity
+import com.skintone.me.login.LoginActivity
 
 class IntroSliderActivity3 : AppCompatActivity() {
 
