@@ -3,6 +3,7 @@ package com.skintone.me.ui
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.skintone.me.MainActivity
 import com.skintone.me.databinding.ActivityDetailBinding
 import com.skintone.me.ui.home.FavoriteActivity
 
@@ -23,7 +24,7 @@ class DetailActivity : AppCompatActivity() {
         }
 
         binding.ivClose.setOnClickListener {
-            onBackPressed()
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
     }

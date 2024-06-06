@@ -91,12 +91,11 @@ class LoginActivity : AppCompatActivity() {
                     builder.setTitle("Login Success!!")
                     builder.setMessage("Hallo, Welcome ${response.loginResult?.name}")
                     builder.setPositiveButton("OK") { _, _ ->
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
                         finish()
 
                     }
-                    val dialog = builder.create()
+                    val dialog = builder.create() 
                     dialog.show()
                 }
 
