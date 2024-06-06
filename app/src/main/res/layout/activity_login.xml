@@ -23,12 +23,13 @@
         android:id="@+id/tv_skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
         android:text="@string/skip_for_now"
-        android:textColor="@color/gray"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/edt_email_login"
+        android:textColor="@color/colorSecondary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
