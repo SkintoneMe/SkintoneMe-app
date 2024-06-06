@@ -91,5 +91,7 @@
     <string name="neutral">Neutral</string>
     <string name="bad">Bad</string>
 
+    <string name="skip_for_now">Skip For Now</string>
+
 
 </resources>

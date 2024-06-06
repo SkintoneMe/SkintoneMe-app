@@ -1,21 +1,38 @@
 package com.skintone.me.ui.readmore
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.viewpager2.widget.ViewPager2
 import com.skintone.me.R
+import com.skintone.me.adapter.SliderAdapter
+import com.skintone.me.databinding.ActivityReadMoreBinding
+import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
 
 class ReadMoreActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityReadMoreBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        enableEdgeToEdge()
-        setContentView(R.layout.activity_read_more)
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
+
+        binding = ActivityReadMoreBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val viewPager = findViewById<ViewPager2>(R.id.viewPager)
+        val dotsIndicator = findViewById<SpringDotsIndicator>(R.id.dotsIndicator)
+
+        val imageList = listOf(
+            R.drawable.story1,
+            R.drawable.story2,
+            R.drawable.story3,
+        )
+        val adapter = SliderAdapter(imageList)
+        viewPager.adapter = adapter
+        dotsIndicator.setViewPager2(viewPager)
+
+        binding.ivClose.setOnClickListener {
+            onBackPressed()
+        }
+
     }
+
+
 }

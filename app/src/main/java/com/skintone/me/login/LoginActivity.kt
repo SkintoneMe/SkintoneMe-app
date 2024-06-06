@@ -52,6 +52,10 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        binding.tvSkip.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmailLogin.text.toString()
             val password = binding.edtPasswordLogin.text.toString()
