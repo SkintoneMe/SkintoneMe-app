@@ -16,8 +16,8 @@
     <string name="description_slider3">Explore and get to know your skin tone well for a\n stunning look of yourself based on the appropriate\n recommended color.</string>
 
     <string name="title_image_slider1">Explore your Natural\n Beauty with  Skin Tone\n Analysis that Reveals\n your Uniqueness.</string>
-    <string name="title_image_slider2">Your Skin Tone is a Unique Canvas, and Skin Tone Analysis is the Brush.</string>
-    <string name="title_image_slider3">Skin Tone analysis is a Liberating Journey Into the True Essence of Beauty.</string>
+    <string name="title_image_slider2">Your Skin Tone is a\n Unique Canvas, and\n Skin Tone Analysis is\n the Brush.</string>
+    <string name="title_image_slider3">Skin Tone analysis is a\n Liberating Journey Into\n the True Essence of Beauty.</string>
 
     <string name="register">Register</string>
     <string name="login">Login</string>
@@ -92,6 +92,5 @@
     <string name="bad">Bad</string>
 
     <string name="skip_for_now">Skip For Now</string>
-
 
 </resources>
