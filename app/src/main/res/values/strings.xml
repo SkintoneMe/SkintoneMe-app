@@ -34,7 +34,7 @@
     <string name="title_camera">Analyze</string>
     <string name="title_profile">Profile</string>
 
-    <string name="hi">Hi, Name</string>
+    <string name="hi">Hi, Irvi Putri</string>
     <string name="identify">Identify your Skin Tone and Start Analyzing it</string>
     <string name="analyze">Analyze Your Skin, Now!</string>
 
@@ -48,6 +48,9 @@
 
     <string name="my_profile">My Profile</string>
     <string name="hi_name">Hi, I\'m</string>
+    <string name="name_prof"> Irvi Putri</string>
+    <string name="gender_prof"> Female</string>
+    <string name="email_prof"> irviputrii@gmail.com</string>
     <string name="language">Language</string>
     <string name="logout">Logout</string>
     <string name="delete_account"><u>Delete Account</u></string>

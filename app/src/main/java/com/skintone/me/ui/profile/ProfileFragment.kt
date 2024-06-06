@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.skintone.me.databinding.FragmentProfileBinding
 import com.skintone.me.login.LoginActivity
+import com.skintone.me.login.RegisterActivity
 
 class ProfileFragment : Fragment() {
 
@@ -36,7 +37,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding.tvDeleteAccount.setOnClickListener {
-            startActivity(Intent(requireContext(), LoginActivity::class.java))
+            startActivity(Intent(requireContext(), RegisterActivity::class.java))
             Toast.makeText(context, "Delete Account Succsesfuly", Toast.LENGTH_SHORT).show()
         }
 
