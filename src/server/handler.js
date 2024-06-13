@@ -351,29 +351,25 @@ const color_palette = {
       "https://storage.googleapis.com/color_recommendation/light/ffffff.png",
       "https://storage.googleapis.com/color_recommendation/light/ffc8dd.png",
       "https://storage.googleapis.com/color_recommendation/light/ffafcc.png",
-      "https://storage.googleapis.com/color_recommendation/light/bde0fe.png",
-      "https://storage.googleapis.com/color_recommendation/light/a2d2ff.png"
+      "https://storage.googleapis.com/color_recommendation/light/bde0fe.png"
     ],
     dark: [
       "https://storage.googleapis.com/color_recommendation/dark/03045e.png",
       "https://storage.googleapis.com/color_recommendation/dark/832161.png",
       "https://storage.googleapis.com/color_recommendation/dark/363062.png",
-      "https://storage.googleapis.com/color_recommendation/dark/751628.png",
-      "https://storage.googleapis.com/color_recommendation/dark/bc455a.png"
+      "https://storage.googleapis.com/color_recommendation/dark/751628.png"
     ],
     "mid-light": [
       "https://storage.googleapis.com/color_recommendation/mid-light/fff8e7.png",
       "https://storage.googleapis.com/color_recommendation/mid-light/b91d2e.png",
       "https://storage.googleapis.com/color_recommendation/mid-light/a2d6f9.png",
-      "https://storage.googleapis.com/color_recommendation/mid-light/fd969a.png",
-      "https://storage.googleapis.com/color_recommendation/mid-light/e6ccb2.png"
+      "https://storage.googleapis.com/color_recommendation/mid-light/fd969a.png"
     ],
     "mid-dark": [
       "https://storage.googleapis.com/color_recommendation/mid-dark/8c001a.png",
       "https://storage.googleapis.com/color_recommendation/mid-dark/d7c0d0.png",
       "https://storage.googleapis.com/color_recommendation/mid-dark/64113f.png",
-      "https://storage.googleapis.com/color_recommendation/mid-dark/2e294e.png",
-      "https://storage.googleapis.com/color_recommendation/mid-dark/f29ca3.png"
+      "https://storage.googleapis.com/color_recommendation/mid-dark/2e294e.png"
     ]
   };
   
