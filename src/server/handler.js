@@ -363,6 +363,22 @@ const color_palette = {
   
   const postPredictHandler = async (request, h) => {
     try {
+        const token = request.headers.authorization.replace('Bearer ', '');
+          let decodedToken;
+  
+          try {
+              decodedToken = jwt.verify(token, 'secret_key');
+          } catch (err) {
+              const response = h.response({
+                  status: 'missed',
+                  message: 'User is not authorized!',
+              });
+              response.code(401);
+              return response;
+          }
+  
+          const userId = decodedToken.userId;
+          
       const { image } = request.payload;
   
       if (!image) {
