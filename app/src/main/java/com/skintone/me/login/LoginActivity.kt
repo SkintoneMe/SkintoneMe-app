@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.skintone.me.MainActivity
 import com.skintone.me.database.User
 import com.skintone.me.database.UserRepository
@@ -43,17 +44,15 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        CoroutineScope(Dispatchers.Main).launch {
-            val user = preferenceManager.getSession().first()
-            if (user.isLogin) {
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+        lifecycleScope.launch {
+            preferenceManager.getSession().collect{user->
+                Log.d("LOGIN", "onCreate: ${user.toString()}")
+                if (user.isLogin) {
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
             }
-        }
-
-        binding.tvSkip.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
         }
 
         binding.btnLogin.setOnClickListener {
@@ -64,23 +63,23 @@ class LoginActivity : AppCompatActivity() {
             }
 
             viewModel.login(email, password).observe(this) { response ->
-                if (response.error == false) {
-                    CoroutineScope(Dispatchers.Main).launch {
-                        val saveToken = async(Dispatchers.IO) {
-                            preferenceManager.saveSession(
-                                User(
-                                    response.loginResult?.name.toString(),
-                                    AUTH_KEY + (response.loginResult?.token.toString()),
-                                    true
-                                )
+                if (response.status == false) {
+                    lifecycleScope.launch {
+                        preferenceManager.saveSession(
+                            User(
+                                response.username.toString(),
+                                AUTH_KEY + (response.data?.token.toString()),
+                                true,
+                                response.gender.toString(),
+                                response.email.toString(),
                             )
-                        }
+                        )
 
-                        saveToken.await()
+                        preferenceManager.saveUsername(response.username.toString())
 
                         Log.d(
                             "Login Activity",
-                            "response ${response.loginResult?.name} ${response.loginResult?.token}"
+                            "response ${response.data?.userId} ${response.data?.token}"
 
                         )
 
@@ -89,7 +88,7 @@ class LoginActivity : AppCompatActivity() {
                     val builder = AlertDialog.Builder(this@LoginActivity)
 
                     builder.setTitle("Login Success!!")
-                    builder.setMessage("Hallo, Welcome ${response.loginResult?.name}")
+                    builder.setMessage("Hallo, Welcome ${response.username}")
                     builder.setPositiveButton("OK") { _, _ ->
                         startActivity(intent)
                         finish()

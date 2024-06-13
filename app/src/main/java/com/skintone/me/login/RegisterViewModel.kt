@@ -21,11 +21,11 @@ class RegisterViewModel (private val userRepository: UserRepository) : ViewModel
     private val _isRegist = MutableLiveData<String>()
     val isRegist: LiveData<String> get() = _isRegist
 
-    fun register(name: String, gender : String, email: String, password: String)  {
+    fun register(username: String, gender : String, email: String, password: String)  {
         viewModelScope.launch {
             _isLoading.postValue(true)
             try {
-                val response = userRepository.register(name, gender, email, password)
+                val response = userRepository.register(username, gender, email, password)
                 _registration.postValue(response)
                 _isLoading.postValue(false)
             } catch (e: HttpException) {

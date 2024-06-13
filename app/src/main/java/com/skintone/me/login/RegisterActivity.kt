@@ -33,7 +33,7 @@ class RegisterActivity : AppCompatActivity() {
         )[RegisterViewModel::class.java]
 
         binding.btnRegister.setOnClickListener {
-            val name = binding.edtNameRegister.text.toString()
+            val username = binding.edtNameRegister.text.toString()
             val gender = binding.edtGenderRegister.text.toString()
             val email = binding.edtEmailRegister.text.toString()
             val password = binding.edtPasswordRegister.text.toString()
@@ -43,11 +43,11 @@ class RegisterActivity : AppCompatActivity() {
             }
 
 
-            Log.d("RegisterActivity", "Before registrasi: $name, $gender, $email, $password")
-            viewModel.register(name, gender, email, password)
+            Log.d("RegisterActivity", "Before registrasi: $username, $gender, $email, $password")
+            viewModel.register(username, gender, email, password)
             Log.d("RegisterActivity", "After registrasi")
             viewModel.registration.observe(this) { response ->
-                if (response.error == false) {
+                if (response.status == false) {
                     Log.d("RegisterActivity", "onCreate: ${response.message}")
                     binding.edtNameRegister.text?.clear()
                     binding.edtGenderRegister.text?.clear()
