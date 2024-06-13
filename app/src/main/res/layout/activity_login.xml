@@ -29,6 +29,9 @@
         android:textColor="@color/colorSecondary"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true"
+        android:textColorHighlight="@color/gray4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
