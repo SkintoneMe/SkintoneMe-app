@@ -378,7 +378,7 @@ const color_palette = {
           }
   
           const userId = decodedToken.userId;
-          
+
       const { image } = request.payload;
   
       if (!image) {
@@ -400,9 +400,23 @@ const color_palette = {
   
       const id = crypto.randomUUID();
       const createdAt = new Date().toISOString();
+
+      const getColorRecommendationFromDB = (predictedClassName) => {
+        return new Promise((resolve, reject) => {
+          const sql = 'SELECT color_name FROM color_jewelry WHERE className = ?';
+          pool.query(sql, [predictedClassName], (error, results) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(results);
+            }
+          });
+        });
+      };
   
       const recommendation = getColorRecommendation(predictedClassName);
       const jewelryRecommendation = getColorJewelryRecommendation(predictedClassName);
+      const recommendationFromDB = await getColorRecommendationFromDB(predictedClassName);
   
       const newPrediction = {
         id,
@@ -412,6 +426,7 @@ const color_palette = {
         createdAt,
         recommendation,
         jewelryRecommendation, // Menambahkan rekomendasi perhiasan ke dalam objek newPrediction
+        recommendation: recommendationFromDB // Menambahkan rekomendasi perhiasan ke dalam objek newPrediction
       };
   
       // await storeData(id, newPrediction);
