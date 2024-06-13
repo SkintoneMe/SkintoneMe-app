@@ -346,9 +346,20 @@ const color_palette = {
   "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e", "#f29ca3"],
 };
 
+const color_jewelry = {
+    light: "gold",
+    dark: "silver",
+    "mid-light": "rose gold",
+    "mid-dark": "gold",
+  };
+
 const getColorRecommendation = (predictedClassName) => {
   return color_palette[predictedClassName] || [];
 };
+
+const getColorJewelry = (predictedClassName) => {
+    return color_jewelry.predictedClassName;
+  };
 
 const postPredictHandler = async (request, h) => {
   try {
@@ -390,6 +401,8 @@ const postPredictHandler = async (request, h) => {
     const createdAt = new Date().toISOString();
 
     const recommendation = getColorRecommendation(predictedClassName);
+    const jewelry_recommendation = getColorJewelry(predictedClassName);
+
 
     const newPrediction = {
       id,
@@ -398,6 +411,7 @@ const postPredictHandler = async (request, h) => {
       predictedClassIndex,
       createdAt,
       recommendation,
+      jewelry_recommendation
     };
 
     // await storeData(id, newPrediction);
