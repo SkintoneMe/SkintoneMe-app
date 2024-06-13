@@ -406,6 +406,7 @@ const postPredictHandler = async (request, h) => {
       .response({
         status: "success",
         message: "Model predicted successfully",
+        username: user.username,
         data: newPrediction,
       })
       .code(201);
