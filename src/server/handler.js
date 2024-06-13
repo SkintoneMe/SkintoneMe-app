@@ -339,145 +339,67 @@ const crypto = require("crypto");
   
 //const { storeData, getDatas } = require("../services/storeData");
 
-// const color_palette = {
-//   light: ["#ffffff", "#ffc8dd", "#ffafcc", "#bde0fe", "#a2d2ff"],
-//   dark: ["#03045e", "#832161", "#363062", "#751628", "#bc455a"],
-//   "mid-light": ["#fff8e7", "#b91d2e", "#a2d6f9", "#fd969a", "#e6ccb2"],
-//   "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e", "#f29ca3"],
-// };
-
-// const color_jewelry = {
-//     light: ["gold"],
-//     dark: ["silver"],
-//     "mid-light": ["silver", "gold", "rose gold" ],
-//     "mid-dark": ["gold"],
-//   };
-
-// const getColorRecommendation = (predictedClassName) => {
-//   return color_palette[predictedClassName] || [];
-// };
-
-// const getColorJewelry = (predictedClassName) => {
-//     return color_jewelry[predictedClassName] || [];
-//   };
-
-
-
-const postPredictHandler = async (request, h) => {
-  try {
-    const token = request.headers.authorization.replace('Bearer ', '');
-        let decodedToken;
-
-        try{
-            decodedToken = jwt.verify(token, 'secret_key');
-        } catch (err) {
-            const response = h.response({
-                status: 'missed',
-                message: 'User is not authorized!',
-            });
-            response.code(401);
-            return response;
-        }
-
-        const userId = decodedToken.userId;
-    const { image } = request.payload;
-
-    if (!image) {
-      return h
-        .response({ status: "error", message: "No image provided" })
-        .code(400);
-    }
-
-    const { model } = request.server.app;
-
-    const CLASS_NAMES = ["dark", "light", "mid-dark", "mid-light"];
-
-    const { predictedClassName, predictions, predictedClassIndex } =
-      await predictClassification(
-        image, // Pass image data directly
-        model,
-        CLASS_NAMES
-      );
-
-    const id = crypto.randomUUID();
-    const createdAt = new Date().toISOString();
-
-    
-    const getColorRecommendationFromDB = (predictedClassName) => {
-        return new Promise((resolve, reject) => {
-          const sql = 'SELECT color_name FROM color_jewelry WHERE className = ?';
-          pool.query(sql, [predictedClassName], (error, results) => {
-            if (error) {
-              reject(error);
-            } else {
-              resolve(results);
-            }
-          });
-        });
-      };
-
-      let recommendationFromDB;
+const color_palette = {
+    light: ["#ffffff", "#ffc8dd", "#ffafcc", "#bde0fe", "#a2d2ff"],
+    dark: ["#03045e", "#832161", "#363062", "#751628", "#bc455a"],
+    "mid-light": ["#fff8e7", "#b91d2e", "#a2d6f9", "#fd969a", "#e6ccb2"],
+    "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e", "#f29ca3"],
+  };
+  
+  const getColorRecommendation = (predictedClassName) => {
+    return color_palette[predictedClassName] || [];
+  };
+  
+  const postPredictHandler = async (request, h) => {
     try {
-      recommendationFromDB = await getColorRecommendationFromDB(predictedClassName);
-    } catch (dbError) {
-      console.error("Database error:", dbError);
+      const { image } = request.payload;
+  
+      if (!image) {
+        return h
+          .response({ status: "error", message: "No image provided" })
+          .code(400);
+      }
+  
+      const { model } = request.server.app;
+  
+      const CLASS_NAMES = ["dark", "light", "mid-dark", "mid-light"];
+  
+      const { predictedClassName, predictions, predictedClassIndex } =
+        await predictClassification(
+          image, // Pass image data directly
+          model,
+          CLASS_NAMES
+        );
+  
+      const id = crypto.randomUUID();
+      const createdAt = new Date().toISOString();
+  
+      const recommendation = getColorRecommendation(predictedClassName);
+  
+      const newPrediction = {
+        id,
+        predictedClassName,
+        predictions,
+        predictedClassIndex,
+        createdAt,
+        recommendation,
+      };
+  
+      // await storeData(id, newPrediction);
+  
       return h
-        .response({ status: "error", message: "Failed to get recommendation from DB" })
+        .response({
+          status: "success",
+          message: "Model predicted successfully",
+          data: newPrediction,
+        })
+        .code(201);
+    } catch (error) {
+      console.error("Error predicting:", error);
+      return h
+        .response({ status: "error", message: err.message })
         .code(500);
     }
-
-      //const recommendationFromDB = await getColorRecommendationFromDB(predictedClassName);
-     //const recommendation = getColorRecommendation(predictedClassName);
-    // const jewelry_recommendation = getColorJewelry(predictedClassName);
-
-
-    const newPrediction = {
-      id,
-      predictedClassName,
-      predictions,
-      predictedClassIndex,
-      createdAt,
-      recommendation: recommendationFromDB
-    };
-
-    // await storeData(id, newPrediction);
-
-    return h
-      .response({
-        status: "success",
-        message: "Model predicted successfully",
-        username: user.username,
-        data: newPrediction,
-      })
-      .code(201);
-  } catch (error) {
-    console.error("Error predicting:", error);
-    return h
-      .response({ status: "error", message: "Failed to predict" })
-      .code(500);
-  }
-};
-
-
-const getPredictHistoriesHandler = async (request, h) => {
-  const histories = await getDatas();
-
-  const formattedHistories = histories.map((data) => ({
-    id: data.id,
-    history: {
-      result: data.result,
-      createdAt: data.createdAt,
-      suggestion: data.suggestion,
-      id: data.id,
-    },
-  }));
-
-  const response = h.response({
-    status: "success",
-    data: formattedHistories,
-  });
-
-  return response;
-};
+  };
 
 module.exports = {register, login, readUser, updateUser, deleteUser, postPredictHandler, getPredictHistoriesHandler};
