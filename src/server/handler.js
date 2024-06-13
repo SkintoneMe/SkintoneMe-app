@@ -361,18 +361,7 @@ const crypto = require("crypto");
 //     return color_jewelry[predictedClassName] || [];
 //   };
 
-const getColorJewelryFromDB = (predictedClassName) => {
-    return new Promise((resolve, reject) => {
-      const sql = 'SELECT color_name, image_URL FROM color_jewelry WHERE className = ?';
-      pool.query(sql, [className], (error, results) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(results);
-        }
-      });
-    });
-  };
+
 
 const postPredictHandler = async (request, h) => {
   try {
@@ -413,9 +402,22 @@ const postPredictHandler = async (request, h) => {
     const id = crypto.randomUUID();
     const createdAt = new Date().toISOString();
 
-    const jewelryRecommendationFromDB = await getColorJewelryFromDB(predictedClassName);
+    
+    const getColorRecommendationFromDB = (predictedClassName) => {
+        return new Promise((resolve, reject) => {
+          const sql = 'SELECT color_name FROM color_jewelry WHERE className = ?';
+          pool.query(sql, [predictedClassName], (error, results) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(results);
+            }
+          });
+        });
+      };
 
-    // const recommendation = getColorRecommendation(predictedClassName);
+      const recommendationFromDB = await getColorRecommendationFromDB(predictedClassName);
+     //const recommendation = getColorRecommendation(predictedClassName);
     // const jewelry_recommendation = getColorJewelry(predictedClassName);
 
 
@@ -425,8 +427,7 @@ const postPredictHandler = async (request, h) => {
       predictions,
       predictedClassIndex,
       createdAt,
-      recommendation,
-      jewelryRecommendation: jewelryRecommendationFromDB,
+      recommendation: recommendationFromDB
     };
 
     // await storeData(id, newPrediction);
