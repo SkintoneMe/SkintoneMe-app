@@ -416,7 +416,17 @@ const postPredictHandler = async (request, h) => {
         });
       };
 
-      const recommendationFromDB = await getColorRecommendationFromDB(predictedClassName);
+      let recommendationFromDB;
+    try {
+      recommendationFromDB = await getColorRecommendationFromDB(predictedClassName);
+    } catch (dbError) {
+      console.error("Database error:", dbError);
+      return h
+        .response({ status: "error", message: "Failed to get recommendation from DB" })
+        .code(500);
+    }
+
+      //const recommendationFromDB = await getColorRecommendationFromDB(predictedClassName);
      //const recommendation = getColorRecommendation(predictedClassName);
     // const jewelry_recommendation = getColorJewelry(predictedClassName);
 
