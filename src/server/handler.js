@@ -346,8 +346,19 @@ const color_palette = {
     "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e", "#f29ca3"],
   };
   
+  const color_jewelry = {
+    light: ["silver"],
+    dark: ["gold"],
+    "mid-light": ["silver"],
+    "mid-dark": ["gold"],
+  };
+  
   const getColorRecommendation = (predictedClassName) => {
     return color_palette[predictedClassName] || [];
+  };
+  
+  const getColorJewelryRecommendation = (predictedClassName) => {
+    return color_jewelry[predictedClassName] || [];
   };
   
   const postPredictHandler = async (request, h) => {
@@ -375,6 +386,7 @@ const color_palette = {
       const createdAt = new Date().toISOString();
   
       const recommendation = getColorRecommendation(predictedClassName);
+      const jewelryRecommendation = getColorJewelryRecommendation(predictedClassName);
   
       const newPrediction = {
         id,
@@ -383,6 +395,7 @@ const color_palette = {
         predictedClassIndex,
         createdAt,
         recommendation,
+        jewelryRecommendation, // Menambahkan rekomendasi perhiasan ke dalam objek newPrediction
       };
   
       // await storeData(id, newPrediction);
@@ -397,7 +410,7 @@ const color_palette = {
     } catch (error) {
       console.error("Error predicting:", error);
       return h
-        .response({ status: "error", message: err.message })
+        .response({ status: "error", message: "Failed to predict" })
         .code(500);
     }
   };
