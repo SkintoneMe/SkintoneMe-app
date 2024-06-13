@@ -26,7 +26,7 @@
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="gender">Gender</string>
+    <string name="gender">Female or Male</string>
     <string name="or">or</string>
     <string name="dont_have_account">Dont have Account?</string>
 
@@ -57,9 +57,9 @@
     <string name="profile">profile</string>
 
     <string name="my_favorite">My Favorite</string>
-    <string name="skintone">skintone</string>
-    <string name="color_palette">palette</string>
-    <string name="jewelry_color">jewelry</string>
+    <string name="skintone">Type of Skintone</string>
+    <string name="color_palette">Color Palette</string>
+    <string name="jewelry_color">Color Jewelry</string>
 
     <string name="result_skin">Result Skin Analyze</string>
     <string name="type_skintone">Type of Skintone</string>

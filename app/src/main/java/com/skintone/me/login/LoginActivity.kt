@@ -10,12 +10,9 @@ import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<< HEAD
 import androidx.lifecycle.lifecycleScope
-=======
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
->>>>>>> a54ade808cb14fd3ac98ecc6af918bf068ecc33e
 import com.skintone.me.MainActivity
 import com.skintone.me.R
 import com.skintone.me.database.User
