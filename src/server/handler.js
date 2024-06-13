@@ -339,26 +339,39 @@ const crypto = require("crypto");
   
 //const { storeData, getDatas } = require("../services/storeData");
 
-const color_palette = {
-  light: ["#ffffff", "#ffc8dd", "#ffafcc", "#bde0fe", "#a2d2ff"],
-  dark: ["#03045e", "#832161", "#363062", "#751628", "#bc455a"],
-  "mid-light": ["#fff8e7", "#b91d2e", "#a2d6f9", "#fd969a", "#e6ccb2"],
-  "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e", "#f29ca3"],
-};
+// const color_palette = {
+//   light: ["#ffffff", "#ffc8dd", "#ffafcc", "#bde0fe", "#a2d2ff"],
+//   dark: ["#03045e", "#832161", "#363062", "#751628", "#bc455a"],
+//   "mid-light": ["#fff8e7", "#b91d2e", "#a2d6f9", "#fd969a", "#e6ccb2"],
+//   "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e", "#f29ca3"],
+// };
 
-const color_jewelry = {
-    light: ["gold"],
-    dark: ["silver"],
-    "mid-light": ["silver", "gold", "rose gold" ],
-    "mid-dark": ["gold"],
-  };
+// const color_jewelry = {
+//     light: ["gold"],
+//     dark: ["silver"],
+//     "mid-light": ["silver", "gold", "rose gold" ],
+//     "mid-dark": ["gold"],
+//   };
 
-const getColorRecommendation = (predictedClassName) => {
-  return color_palette[predictedClassName] || [];
-};
+// const getColorRecommendation = (predictedClassName) => {
+//   return color_palette[predictedClassName] || [];
+// };
 
-const getColorJewelry = (predictedClassName) => {
-    return color_jewelry[predictedClassName] || [];
+// const getColorJewelry = (predictedClassName) => {
+//     return color_jewelry[predictedClassName] || [];
+//   };
+
+const getColorJewelryFromDB = (predictedClassName) => {
+    return new Promise((resolve, reject) => {
+      const sql = 'SELECT color_name, image_URL FROM color_jewelry WHERE className = ?';
+      pool.query(sql, [className], (error, results) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(results);
+        }
+      });
+    });
   };
 
 const postPredictHandler = async (request, h) => {
@@ -400,8 +413,10 @@ const postPredictHandler = async (request, h) => {
     const id = crypto.randomUUID();
     const createdAt = new Date().toISOString();
 
-    const recommendation = getColorRecommendation(predictedClassName);
-    const jewelry_recommendation = getColorJewelry(predictedClassName);
+    const jewelryRecommendationFromDB = await getColorJewelryFromDB(predictedClassName);
+
+    // const recommendation = getColorRecommendation(predictedClassName);
+    // const jewelry_recommendation = getColorJewelry(predictedClassName);
 
 
     const newPrediction = {
@@ -411,8 +426,7 @@ const postPredictHandler = async (request, h) => {
       predictedClassIndex,
       createdAt,
       recommendation,
-      jewelry_recommendation,
-      userId
+      jewelryRecommendation: jewelryRecommendationFromDB,
     };
 
     // await storeData(id, newPrediction);
