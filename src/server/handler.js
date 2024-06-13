@@ -349,7 +349,7 @@ const color_palette = {
 const color_jewelry = {
     light: ["gold"],
     dark: ["silver"],
-    "mid-light": ["rose gold"],
+    "mid-light": ["silver", "gold", "rose gold" ],
     "mid-dark": ["gold"],
   };
 
@@ -411,7 +411,8 @@ const postPredictHandler = async (request, h) => {
       predictedClassIndex,
       createdAt,
       recommendation,
-      jewelry_recommendation
+      jewelry_recommendation,
+      userId
     };
 
     // await storeData(id, newPrediction);
