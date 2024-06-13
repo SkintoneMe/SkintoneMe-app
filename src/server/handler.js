@@ -415,4 +415,4 @@ const color_palette = {
     }
   };
 
-module.exports = {register, login, readUser, updateUser, deleteUser, postPredictHandler, getPredictHistoriesHandler};
+module.exports = {register, login, readUser, updateUser, deleteUser, postPredictHandler};

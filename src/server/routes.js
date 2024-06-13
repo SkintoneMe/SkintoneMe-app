@@ -4,7 +4,6 @@ const {register,
   updateUser, 
   deleteUser,
   postPredictHandler,
-  getPredictHistoriesHandler,
 } = require("../server/handler");
 
 const routes = [
@@ -49,11 +48,6 @@ const routes = [
         maxBytes: 1000 * 1000,
       },
     },
-  },
-  {
-    path: "/predict/histories",
-    method: "GET",
-    handler: getPredictHistoriesHandler,
   },
 ];
 
