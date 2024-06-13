@@ -81,7 +81,7 @@ class HomeFragment : Fragment() {
         val sliderItems = listOf(
             ImageSlider(getString(R.string.title_image_slider1), R.drawable.intro1, R.drawable.rounded_pink2),
             ImageSlider(getString(R.string.title_image_slider2), R.drawable.intro2, R.drawable.rounded_gray4),
-            ImageSlider(getString(R.string.title_image_slider3), R.drawable.intro3, R.drawable.rounded_pink2)
+            ImageSlider(getString(R.string.title_image_slider3), R.drawable.intro3, R.drawable.rounded_colorprimary)
         )
 
         val adapter = ImageSliderAdapter(sliderItems)
