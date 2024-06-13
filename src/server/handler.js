@@ -340,10 +340,41 @@ const crypto = require("crypto");
 //const { storeData, getDatas } = require("../services/storeData");
 
 const color_palette = {
-    light: ["#ffffff", "#ffc8dd", "#ffafcc", "#bde0fe", "#a2d2ff"],
-    dark: ["#03045e", "#832161", "#363062", "#751628", "#bc455a"],
-    "mid-light": ["#fff8e7", "#b91d2e", "#a2d6f9", "#fd969a", "#e6ccb2"],
-    "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e", "#f29ca3"],
+    light: ["#ffffff", "#ffc8dd", "#ffafcc", "#bde0fe"],
+    dark: ["#03045e", "#832161", "#363062", "#751628"],
+    "mid-light": ["#fff8e7", "#b91d2e", "#a2d6f9", "#fd969a"],
+    "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e"]
+  };
+  
+  const color_palette_img = {
+    light: [
+      "https://storage.googleapis.com/color_recommendation/light/ffffff.png",
+      "https://storage.googleapis.com/color_recommendation/light/ffc8dd.png",
+      "https://storage.googleapis.com/color_recommendation/light/ffafcc.png",
+      "https://storage.googleapis.com/color_recommendation/light/bde0fe.png",
+      "https://storage.googleapis.com/color_recommendation/light/a2d2ff.png"
+    ],
+    dark: [
+      "https://storage.googleapis.com/color_recommendation/dark/03045e.png",
+      "https://storage.googleapis.com/color_recommendation/dark/832161.png",
+      "https://storage.googleapis.com/color_recommendation/dark/363062.png",
+      "https://storage.googleapis.com/color_recommendation/dark/751628.png",
+      "https://storage.googleapis.com/color_recommendation/dark/bc455a.png"
+    ],
+    "mid-light": [
+      "https://storage.googleapis.com/color_recommendation/mid-light/fff8e7.png",
+      "https://storage.googleapis.com/color_recommendation/mid-light/b91d2e.png",
+      "https://storage.googleapis.com/color_recommendation/mid-light/a2d6f9.png",
+      "https://storage.googleapis.com/color_recommendation/mid-light/fd969a.png",
+      "https://storage.googleapis.com/color_recommendation/mid-light/e6ccb2.png"
+    ],
+    "mid-dark": [
+      "https://storage.googleapis.com/color_recommendation/mid-dark/8c001a.png",
+      "https://storage.googleapis.com/color_recommendation/mid-dark/d7c0d0.png",
+      "https://storage.googleapis.com/color_recommendation/mid-dark/64113f.png",
+      "https://storage.googleapis.com/color_recommendation/mid-dark/2e294e.png",
+      "https://storage.googleapis.com/color_recommendation/mid-dark/f29ca3.png"
+    ]
   };
   
   const color_jewelry = {
@@ -361,24 +392,12 @@ const color_palette = {
     return color_jewelry[predictedClassName] || [];
   };
   
+  const getColorPaletteRecommendation = (predictedClassName) => {
+    return color_palette_img[predictedClassName] || [];
+  };
+  
   const postPredictHandler = async (request, h) => {
     try {
-        const token = request.headers.authorization.replace('Bearer ', '');
-          let decodedToken;
-  
-          try {
-              decodedToken = jwt.verify(token, 'secret_key');
-          } catch (err) {
-              const response = h.response({
-                  status: 'missed',
-                  message: 'User is not authorized!',
-              });
-              response.code(401);
-              return response;
-          }
-  
-          const userId = decodedToken.userId;
-
       const { image } = request.payload;
   
       if (!image) {
@@ -400,23 +419,10 @@ const color_palette = {
   
       const id = crypto.randomUUID();
       const createdAt = new Date().toISOString();
-
-      const getColorRecommendationFromDB = (predictedClassName) => {
-        return new Promise((resolve, reject) => {
-          const sql = 'SELECT color_name FROM color_jewelry WHERE className = ?';
-          pool.query(sql, [predictedClassName], (error, results) => {
-            if (error) {
-              reject(error);
-            } else {
-              resolve(results);
-            }
-          });
-        });
-      };
   
       const recommendation = getColorRecommendation(predictedClassName);
       const jewelryRecommendation = getColorJewelryRecommendation(predictedClassName);
-      const recommendationFromDB = await getColorRecommendationFromDB(predictedClassName);
+      const colorPaletteImg = getColorPaletteRecommendation(predictedClassName);
   
       const newPrediction = {
         id,
@@ -425,8 +431,8 @@ const color_palette = {
         predictedClassIndex,
         createdAt,
         recommendation,
-        jewelryRecommendation, // Menambahkan rekomendasi perhiasan ke dalam objek newPrediction
-        recommendation: recommendationFromDB // Menambahkan rekomendasi perhiasan ke dalam objek newPrediction
+        jewelryRecommendation,
+        colorPaletteImg // Menambahkan rekomendasi perhiasan ke dalam objek newPrediction
       };
   
       // await storeData(id, newPrediction);
