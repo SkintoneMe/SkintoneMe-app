@@ -324,6 +324,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:drawableLeft="@drawable/ic_love2"
+                android:backgroundTint="@color/white"
                 android:text="@string/add_result"
                 android:textColor="@color/red"
                 app:layout_constraintBottom_toBottomOf="parent"
