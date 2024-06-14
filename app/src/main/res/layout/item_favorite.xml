@@ -10,6 +10,7 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/ic_love"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_love"

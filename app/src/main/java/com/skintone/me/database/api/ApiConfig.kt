@@ -12,7 +12,7 @@ object ApiConfig {
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://skintoneme-api-355xrolqhq-et.a.run.app")
+            .baseUrl("https://skintoneme-app-s7mazbfreq-et.a.run.app")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

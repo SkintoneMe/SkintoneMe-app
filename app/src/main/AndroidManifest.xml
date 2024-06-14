@@ -24,7 +24,7 @@
             android:name=".ui.readmore.ReadMoreActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.home.FavoriteActivity"
+            android:name=".favo.FavoriteActivity"
             android:exported="false" />
         <activity
             android:name=".ui.DetailActivity"

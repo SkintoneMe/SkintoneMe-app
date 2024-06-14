@@ -1,8 +1,6 @@
 package com.skintone.me.ui.home
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,13 +15,12 @@ import com.skintone.me.database.ImageSlider
 import com.skintone.me.database.PreferenceManager
 import com.skintone.me.database.dataStore
 import com.skintone.me.databinding.FragmentHomeBinding
+import com.skintone.me.favo.FavoriteActivity
 import com.skintone.me.ui.camera.CameraActivity
 import com.skintone.me.ui.readmore.ReadMoreActivity
 import com.skintone.me.ui.readmore.ReadMoreActivity2
 import com.skintone.me.ui.readmore.ReadMoreActivity3
 import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -81,7 +78,7 @@ class HomeFragment : Fragment() {
         val sliderItems = listOf(
             ImageSlider(getString(R.string.title_image_slider1), R.drawable.intro1, R.drawable.rounded_pink2),
             ImageSlider(getString(R.string.title_image_slider2), R.drawable.intro2, R.drawable.rounded_gray4),
-            ImageSlider(getString(R.string.title_image_slider3), R.drawable.intro3, R.drawable.rounded_colorprimary)
+            ImageSlider(getString(R.string.title_image_slider3), R.drawable.intro3, R.drawable.rounded2_colorprimary)
         )
 
         val adapter = ImageSliderAdapter(sliderItems)

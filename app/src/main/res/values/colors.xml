@@ -22,4 +22,12 @@
 
     <color name="buttonColor">#2B2E4A</color>
 
+    <color name="dark">	#b98150</color>
+    <color name="mid_dark">	#c08e62</color>
+    <color name="light">#deb093</color>
+    <color name="mid_light">#d2946b</color>
+
+    <color name="gold">#F4B103</color>
+    <color name="silver">#C0C0C0</color>
+
 </resources>

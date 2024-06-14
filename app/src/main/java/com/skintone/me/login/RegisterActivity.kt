@@ -65,7 +65,7 @@ class RegisterActivity : AppCompatActivity() {
                     val builder = AlertDialog.Builder(this)
                     builder.setTitle("Register Success")
                     builder.setMessage("Success Register")
-                    builder.setPositiveButton("Yay") { _, _ ->
+                    builder.setPositiveButton("Yay! Login Now") { _, _ ->
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                         finish()

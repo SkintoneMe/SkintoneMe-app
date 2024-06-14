@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -31,7 +32,13 @@ class CameraActivity : AppCompatActivity() {
         }
 
         binding.ivAnalyzeNext.setOnClickListener {
-            startActivity(Intent(this, DetailActivity::class.java))
+            if (currentImageUri != null){
+                val intent = Intent(this, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.EXTRA_IMG_URI, currentImageUri.toString())
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Please select or capture an image first", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.ivClose.setOnClickListener {

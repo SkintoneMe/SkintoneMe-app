@@ -7,7 +7,8 @@ import com.skintone.me.database.api.ApiService
 import com.skintone.me.response.RegisterResponse
 
 
-class UserRepository (private val preferenceManager: PreferenceManager, private val apiService: ApiService) {
+class UserRepository (private val preferenceManager: PreferenceManager,
+                      private val apiService: ApiService) {
 
     suspend fun login(email: String, password: String) =
         apiService.login(email, password)
@@ -31,7 +32,7 @@ class UserRepository (private val preferenceManager: PreferenceManager, private 
             apiService: ApiService
         ): UserRepository =
             instance ?: synchronized(this) {
-                instance ?: UserRepository(userPreference, apiService)
+                instance ?: UserRepository(userPreference,apiService)
             }.also { instance = it }
     }
 

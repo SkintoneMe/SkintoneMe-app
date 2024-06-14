@@ -54,6 +54,7 @@
         android:layout_marginHorizontal="100dp"
         android:backgroundTint="@color/buttonColor"
         android:text="@string/login"
+        android:textSize="13sp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

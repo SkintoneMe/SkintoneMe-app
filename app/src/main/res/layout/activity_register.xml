@@ -109,6 +109,7 @@
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/colorSecondary2"
         android:text="@string/register"
+        android:textSize="13sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

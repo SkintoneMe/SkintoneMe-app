@@ -1,6 +1,7 @@
 package com.skintone.me.ui.readmore
 
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.skintone.me.R
@@ -13,6 +14,8 @@ class ReadMoreActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReadMoreBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
 
         binding = ActivityReadMoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
