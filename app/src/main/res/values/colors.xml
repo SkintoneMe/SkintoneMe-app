@@ -30,4 +30,13 @@
     <color name="gold">#F4B103</color>
     <color name="silver">#C0C0C0</color>
 
+    <color name="palette1">#ffffff</color>
+    <color name="palette2">#ffc8dd</color>
+    <color name="palette3">#03045e</color>
+    <color name="palette4">#832161</color>
+    <color name="palette5">#fff8e7</color>
+    <color name="palette6">#b91d2e</color>
+    <color name="palette7">#8c001a</color>
+    <color name="palette8">#d7c0d0</color>
+
 </resources>
