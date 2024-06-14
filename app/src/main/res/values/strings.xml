@@ -96,6 +96,24 @@
     <string name="neutral">Neutral</string>
     <string name="bad">Bad</string>
 
+    <string name="palette1">#ffffff</string>
+    <string name="palette2">#ffc8dd</string>
+    <string name="palette3">#03045e</string>
+    <string name="palette4">#832161</string>
+    <string name="palette5">#fff8e7</string>
+    <string name="palette6">#b91d2e</string>
+    <string name="palette7">#8c001a</string>
+    <string name="palette8">#d7c0d0</string>
+
+    <string name="white">White</string>
+    <string name="cherry">Cherry </string>
+    <string name="navy">Navy</string>
+    <string name="mauve">Mauve</string>
+    <string name="cosmic_Latte">Cosmic Latte</string>
+    <string name="red_crimson">Red crimson</string>
+    <string name="red_cherry">Red cherry</string>
+    <string name="lavender">Lavender</string>
+
     <string name="skip_for_now">Skip For Now</string>
 
 </resources>

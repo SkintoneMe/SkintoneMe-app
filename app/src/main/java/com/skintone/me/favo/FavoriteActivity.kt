@@ -19,7 +19,7 @@ class FavoriteActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.ivClose.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            onBackPressed()
         }
 
     }
