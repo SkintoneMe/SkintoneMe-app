@@ -17,6 +17,7 @@ class CameraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCameraBinding
     private var currentImageUri: Uri? = null
+    private lateinit var viewModel: CameraViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +37,12 @@ class CameraActivity : AppCompatActivity() {
                 val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.EXTRA_IMG_URI, currentImageUri.toString())
                 startActivity(intent)
+
             } else {
                 Toast.makeText(this, "Please select or capture an image first", Toast.LENGTH_SHORT).show()
+            }
+            viewModel.isLoading.observe(this) { isLoading ->
+                binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
             }
         }
 

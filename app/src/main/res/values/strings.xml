@@ -66,6 +66,7 @@
     <string name="color_jewelry">Color Jewelry of Me</string>
     <string name="remove_result">Remove The Result to Favorite</string>
     <string name="add_result">Add The Result to Favorites</string>
+    <string name="gender1" > Gender </string>
 
     <string name="result_skintone">The Result of My Skintone is</string>
     <string name="light">Light</string>

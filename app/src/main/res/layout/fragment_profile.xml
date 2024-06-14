@@ -129,7 +129,7 @@
                     android:id="@+id/tv_gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/gender"
+                    android:text="@string/gender1"
                     android:textStyle="bold"
                     android:textSize="14sp"
                     android:layout_gravity="center"
