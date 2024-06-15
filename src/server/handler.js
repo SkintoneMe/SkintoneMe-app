@@ -339,11 +339,25 @@ const crypto = require("crypto");
   
 //const { storeData, getDatas } = require("../services/storeData");
 
+const color_Code_Skin = {
+    light: ["#feddbe"],
+    dark: ["#754f3c"],
+    "mid-light": ["#e2a371"],
+    "mid-dark": ["#906d60"]
+  };  
+
 const color_palette = {
     light: ["#ffffff", "#ffc8dd", "#ffafcc", "#bde0fe"],
     dark: ["#03045e", "#832161", "#363062", "#751628"],
     "mid-light": ["#fff8e7", "#b91d2e", "#a2d6f9", "#fd969a"],
     "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e"]
+  };
+
+  const color_Name_Palette= {
+    light: ["White", "Cherry Blush", "Dusty Pink", "Lavender blue"],
+    dark: ["Navy", "Mauve", "Grey","Maroon", "Dark pink"],
+    "mid-light": ["Cosmic Latte", "Red crimson","Sky blue", "Pink peach"],
+    "mid-dark": ["Red cherry", "Lavender", "Purple", "Dark Grey"]
   };
   
 //   const color_palette_img = {
@@ -372,6 +386,14 @@ const color_palette = {
 //       "https://storage.googleapis.com/color_recommendation/mid-dark/2e294e.png"
 //     ]
 //   };
+
+ const color_Code_Jewelry= {
+    light: ["#e2e5e6"],
+    dark: ["#ffc536"],
+    "mid-light": ["#e2e5e6"],
+    "mid-dark": ["#ffc536"],
+  };
+  
   
   const color_jewelry = {
     light: ["silver"],
@@ -379,10 +401,22 @@ const color_palette = {
     "mid-light": ["silver"],
     "mid-dark": ["gold"],
   };
+
+  const getColorCodeSkin = (predictedClassName) => {
+    return color_Code_Skin[predictedClassName] || [];
+  };  
   
   const getColorRecommendation = (predictedClassName) => {
     return color_palette[predictedClassName] || [];
   };
+
+  const getColorNamePalette = (predictedClassName) => {
+    return color_Name_Palette[predictedClassName] || [];
+  };
+
+  const getColorCodeJewelry = (predictedClassName) => {
+    return color_Code_Jewelry[predictedClassName] || [];
+  };  
   
   const getColorJewelryRecommendation = (predictedClassName) => {
     return color_jewelry[predictedClassName] || [];
@@ -432,17 +466,23 @@ const color_palette = {
       const id = crypto.randomUUID();
       const createdAt = new Date().toISOString();
   
+      const colorCodeSkin= getColorCodeSkin(predictedClassName);
       const recommendation = getColorRecommendation(predictedClassName);
+      const colorNamePalette= getColorNamePalette(predictedClassName);
+      const colorCodeJewelry= getColorCodeJewelry(predictedClassName);
       const jewelryRecommendation = getColorJewelryRecommendation(predictedClassName);
     //   const colorPaletteImg = getColorPaletteRecommendation(predictedClassName);
   
       const newPrediction = {
         id,
         predictedClassName,
+        colorCodeSkin,
         predictions,
         predictedClassIndex,
         createdAt,
         recommendation,
+        colorNamePalette,
+        colorCodeJewelry,
         jewelryRecommendation,
         // colorPaletteImg // Menambahkan rekomendasi perhiasan ke dalam objek newPrediction
       };
