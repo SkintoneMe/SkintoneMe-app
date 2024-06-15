@@ -346,32 +346,32 @@ const color_palette = {
     "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e"]
   };
   
-  const color_palette_img = {
-    light: [
-      "https://storage.googleapis.com/color_recommendation/light/ffffff.png",
-      "https://storage.googleapis.com/color_recommendation/light/ffc8dd.png",
-      "https://storage.googleapis.com/color_recommendation/light/ffafcc.png",
-      "https://storage.googleapis.com/color_recommendation/light/bde0fe.png"
-    ],
-    dark: [
-      "https://storage.googleapis.com/color_recommendation/dark/03045e.png",
-      "https://storage.googleapis.com/color_recommendation/dark/832161.png",
-      "https://storage.googleapis.com/color_recommendation/dark/363062.png",
-      "https://storage.googleapis.com/color_recommendation/dark/751628.png"
-    ],
-    "mid-light": [
-      "https://storage.googleapis.com/color_recommendation/mid-light/fff8e7.png",
-      "https://storage.googleapis.com/color_recommendation/mid-light/b91d2e.png",
-      "https://storage.googleapis.com/color_recommendation/mid-light/a2d6f9.png",
-      "https://storage.googleapis.com/color_recommendation/mid-light/fd969a.png"
-    ],
-    "mid-dark": [
-      "https://storage.googleapis.com/color_recommendation/mid-dark/8c001a.png",
-      "https://storage.googleapis.com/color_recommendation/mid-dark/d7c0d0.png",
-      "https://storage.googleapis.com/color_recommendation/mid-dark/64113f.png",
-      "https://storage.googleapis.com/color_recommendation/mid-dark/2e294e.png"
-    ]
-  };
+//   const color_palette_img = {
+//     light: [
+//       "https://storage.googleapis.com/color_recommendation/light/ffffff.png",
+//       "https://storage.googleapis.com/color_recommendation/light/ffc8dd.png",
+//       "https://storage.googleapis.com/color_recommendation/light/ffafcc.png",
+//       "https://storage.googleapis.com/color_recommendation/light/bde0fe.png"
+//     ],
+//     dark: [
+//       "https://storage.googleapis.com/color_recommendation/dark/03045e.png",
+//       "https://storage.googleapis.com/color_recommendation/dark/832161.png",
+//       "https://storage.googleapis.com/color_recommendation/dark/363062.png",
+//       "https://storage.googleapis.com/color_recommendation/dark/751628.png"
+//     ],
+//     "mid-light": [
+//       "https://storage.googleapis.com/color_recommendation/mid-light/fff8e7.png",
+//       "https://storage.googleapis.com/color_recommendation/mid-light/b91d2e.png",
+//       "https://storage.googleapis.com/color_recommendation/mid-light/a2d6f9.png",
+//       "https://storage.googleapis.com/color_recommendation/mid-light/fd969a.png"
+//     ],
+//     "mid-dark": [
+//       "https://storage.googleapis.com/color_recommendation/mid-dark/8c001a.png",
+//       "https://storage.googleapis.com/color_recommendation/mid-dark/d7c0d0.png",
+//       "https://storage.googleapis.com/color_recommendation/mid-dark/64113f.png",
+//       "https://storage.googleapis.com/color_recommendation/mid-dark/2e294e.png"
+//     ]
+//   };
   
   const color_jewelry = {
     light: ["silver"],
@@ -388,9 +388,9 @@ const color_palette = {
     return color_jewelry[predictedClassName] || [];
   };
   
-  const getColorPaletteRecommendation = (predictedClassName) => {
-    return color_palette_img[predictedClassName] || [];
-  };
+//   const getColorPaletteRecommendation = (predictedClassName) => {
+//     return color_palette_img[predictedClassName] || [];
+//   };
   
   const postPredictHandler = async (request, h) => {
     try {
@@ -434,7 +434,7 @@ const color_palette = {
   
       const recommendation = getColorRecommendation(predictedClassName);
       const jewelryRecommendation = getColorJewelryRecommendation(predictedClassName);
-      const colorPaletteImg = getColorPaletteRecommendation(predictedClassName);
+    //   const colorPaletteImg = getColorPaletteRecommendation(predictedClassName);
   
       const newPrediction = {
         id,
@@ -444,7 +444,7 @@ const color_palette = {
         createdAt,
         recommendation,
         jewelryRecommendation,
-        colorPaletteImg // Menambahkan rekomendasi perhiasan ke dalam objek newPrediction
+        // colorPaletteImg // Menambahkan rekomendasi perhiasan ke dalam objek newPrediction
       };
   
       // await storeData(id, newPrediction);
