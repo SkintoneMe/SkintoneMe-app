@@ -2,20 +2,87 @@
 
 ![Overview Banner!](https://github.com/SkintoneMe/SkintoneMe/blob/main/img.jpg)
 
-The emergence of the topic of skin color analysis in various social media is very much discussed. Skin color analysis is a very necessary thing to know the type of skin color you have and other needs that are in accordance with skin color. The difficulty of getting a skin color analysis facility that is easily accessible and free and can analyze and provide recommendations that are suitable according to the skin color we have is a problem that needs to be overcome.  This is evidenced by the many complaints felt by conducting a survey of 80%, namely the difficulty in determining skin color which of course can affect the suitability of beauty, makeup and fashion products that can affect their appearance. There are several facilities for skin color analysis that are paid and run directly by visiting a beauty clinic or analysis provider that only exists in several big cities which is certainly a problem in reaching these facilities. 
+<h1 align="center">Skintone.me - Machine Learning Documentation</h1>
+<p align="center">
+  <img src="https://github.com/SkintoneMe/SkintoneMe/blob/main/img.jpg" alt="Deskripsi Gambar" style="width:100%;">
+</p>
 
-To help a problem that exists, an android-based application is present as a free skin color analysis provider designed to help and overcome perceived complaints. This application will provide convenience in analyzing the skin color owned, as well as providing makeup recommendations, beauty products, to fashion in accordance with the skin color analyzed. This can certainly be the right solution to facilitate and help the problem of skin color analysis that is being busy needed.
+### Function Dependencies
+
+| Library    | Version    |
+|------------|------------|
+| Tensorflow | <code>^2.5.0</code> | 
+| Keras | <code>^2.4.3</code> | 
+| Matplotlib | <code>^3.4.2</code> | 
+| NumPy | <code>^1.19.5</code> | 
+| Pandas | <code>^1.2.4</code> | 
+| Scikit-learn | <code>^0.24.2</code> | 
+| Seaborn | <code>^0.11.1</code> | 
+
+## Transfer Learning InceptionV3
+<p align="left">
+ InceptionV3 is a deep learning model used for image classification, including the classification of ten types of fish. It is pre-trained on a large dataset and can extract relevant features from fish images. The model's architecture includes convolutional layers, pooling layers, and fully connected layers. It is trained using labeled fish images, and can classify new images by assigning probabilities to each fish species. InceptionV3 is effective for accurately identifying fish species based on visual characteristics.
+</p>
+
+## Dataset
+<p align="left">
+The dataset was then split into a training set and a test set. The training set was used to train the InceptionV3 model, while the test set was used to evaluate its performance.
+</p>
+
+| Type of Skin    |
+|------------|
+| Dark |
+| Light | 
+| Mid-Dark|| 
+| Mid-Light|
 
 
+## Model Architecture
+<p align="left">
+InceptionV3 is a state-of-the-art deep learning model designed specifically for image classification tasks. It encompasses a sophisticated architecture comprising convolutional layers, pooling layers, and fully connected layers. This architecture enables the extraction of hierarchical features at varying levels of abstraction, facilitating the accurate classification of skintone.<br>
+In addition to its primary architecture, InceptionV3 incorporates auxiliary classifiers at intermediate layers. These auxiliary classifiers contribute to gradient propagation during training, enhancing the overall performance and convergence speed of the model.
+ </p>
+ 
+## Training
+Train the InceptionV3 model using the labeled images within the training set. Utilize prominent machine learning frameworks or libraries, such as TensorFlow or Keras, which provide pre-built implementations of InceptionV3. Fine-tune hyperparameters and training configurations based on experimentation and model performance.
+### Pre-built implementations of InceptionV3
+<code># Download the pre-trained weights. No top means it excludes the fully connected layer it uses for classification.
+!wget --no-check-certificate \
+    https://storage.googleapis.com/mledu-datasets/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5 \
+    -O /tmp/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5</code>
+### Fine-tune hyperparameters and Training configurations
+| Type    | Value    |
+|------------|------------|
+| Learning Rate | <code>0.0001</code> | 
+| Optimizer | <code>Adam</code> | 
+| Batch Size | <code>32</code> | 
+| Number of Training Epochs | <code>100</code> | 
+| Input Shape | <code>(224,224,3)</code> | 
+| Data Augmentation Parameters | <code>rescale=1./255,rotation_range=20,width_shift_range=0.2,</code><br><code>height_shift_range=0.2,shear_range=0.2,zoom_range=0.2,</code><br><code>fill_mode='nearest',brightness_range=[0.8, 1.2],horizontal_flip=True</code> | 
+| Regularization Techniques |  <code>layers.Flatten()(last_output)</code><br><code>layers.Dense(1024, activation='relu')(x)</code><br><code>layers.Dropout(0.2)(x)</code><br><code>layers.Dense (4, activation='softmax')(x)</code><br> | 
 
+## Evaluation and Visualitation
+Once the model training is complete, evaluate its performance using the test set. Measure accuracy and other relevant evaluation metrics to assess the model's classification capability.
 
-# 👷‍♂️ Our Teams
-| Name                       | Bangkit ID   | Role             | Linkedin Profile                                                              |
-| ----------------------     | :---------:  | ---------------- | :---------------------------------------------------------------------------: |
-| Nisrina Raniah             | C482D4KX0466 | Cloud Engineer   | [Linkedin](https://www.linkedin.com/in/nisrina-raniah)                        |
-| Asfia Nurul Aeni	         | C482D4KX0726 | Cloud Engineer   | [Linkedin](https://www.linkedin.com/in/asfia-nurul-aeni-964937289)            |
-| Anisya Nugraheni Fauziyyah | M008D4KX1562 | ML Engineer      | [Linkedin](https://www.linkedin.com/in/anisya-nugraheni-fauziyyah-201a44213/) |
-| Marsa Hulwa Indri Muthi	   | M189D4KX1619 | ML Engineer      | [Linkedin](https://www.linkedin.com/in/marsa-hulwa-indri-muthi-867595293/)    |
-| Siti Zubaidah	             | M189D4KX2587 | ML Engineer      | [Linkedin](https://www.linkedin.com/in/siti-zubaidah-6536a4243/)              |
-| Irvi Putri Fardian	       | A301D4KX3599 | Android Engineer | [Linkedin](https://www.linkedin.com/in/irviputrifardian/)                     |
-| M Raihan Aryadevin	       | A265D4KY3939 | Android Engineer | [Linkedin](https://www.linkedin.com/in/m-raihan-aryadevin/)                   |
+### Model Accuracy & Lose
+<p align="left">
+  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/model%20accuracy%20.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
+</p>
+<p align="left">
+  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/model%20loss%20.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
+</p>
+
+### Classification Report at Test Dataset
+<p align="left">
+  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/classification%20report%20.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
+</p>
+
+### Confusion Matrix at Test Dataset
+<p align="left">
+  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/confussion%20matrix%20.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
+</p>
+
+## Example Prediction
+<p align="left">
+  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/display%20labels%20and%20prediction.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
+</p>
