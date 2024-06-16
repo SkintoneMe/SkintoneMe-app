@@ -1,7 +1,4 @@
 # skintone.me-app
-
-![Overview Banner!](https://github.com/SkintoneMe/SkintoneMe/blob/main/img.jpg)
-
 <h1 align="center">Skintone.me - Machine Learning Documentation</h1>
 <p align="center">
   <img src="https://github.com/SkintoneMe/SkintoneMe/blob/main/img.jpg" alt="Deskripsi Gambar" style="width:100%;">
@@ -66,20 +63,20 @@ Once the model training is complete, evaluate its performance using the test set
 
 ### Model Accuracy & Lose
 <p align="left">
-  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/model%20accuracy%20.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
+  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/model%20accuracy.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
 </p>
 <p align="left">
-  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/model%20loss%20.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
+  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/model%20loss.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
 </p>
 
 ### Classification Report at Test Dataset
 <p align="left">
-  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/classification%20report%20.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
+  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/classification%20report.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
 </p>
 
 ### Confusion Matrix at Test Dataset
 <p align="left">
-  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/confussion%20matrix%20.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
+  <img src="https://github.com/sizubad/skintoneme-app/blob/machine-learning/Result/confussion%20matrix.png" alt="Deskripsi Gambar" style="width:50%; border: 1px solid black;">
 </p>
 
 ## Example Prediction
