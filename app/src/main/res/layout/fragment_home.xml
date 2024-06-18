@@ -427,21 +427,24 @@
                                                        <RadioButton
                                                            android:background="@drawable/custom_radio_selector"
                                                            android:textColor="@drawable/custom_radio_text"
-                                                           android:layout_width="60dp"
-                                                           android:layout_height="60dp"
+                                                           android:layout_marginStart="10sp"
+                                                           android:layout_width="70dp"
+                                                           android:layout_height="70dp"
                                                            android:button="@color/colorPrimary"
-                                                           android:drawableTop="@drawable/ic_exited"
+                                                           android:backgroundTint="@color/pink2"
+                                                           android:drawableBottom="@drawable/ic_excit"
                                                            android:textAlignment="center"
                                                            android:text="@string/excited" />
 
                                                        <RadioButton
                                                            android:background="@drawable/custom_radio_selector"
-                                                           android:layout_marginStart="10sp"
-                                                           android:layout_width="60dp"
-                                                           android:layout_height="60dp"
                                                            android:textColor="@drawable/custom_radio_text"
+                                                           android:layout_marginStart="10sp"
+                                                           android:layout_width="70dp"
+                                                           android:layout_height="70dp"
                                                            android:button="@color/colorPrimary"
-                                                           android:drawableTop="@drawable/ic_happy"
+                                                           android:backgroundTint="@color/pink2"
+                                                           android:drawableBottom="@drawable/ic_smile"
                                                            android:textAlignment="center"
                                                            android:text="@string/happy" />
 
@@ -449,10 +452,11 @@
                                                            android:background="@drawable/custom_radio_selector"
                                                            android:textColor="@drawable/custom_radio_text"
                                                            android:layout_marginStart="10sp"
-                                                           android:layout_width="60dp"
-                                                           android:layout_height="60dp"
+                                                           android:layout_width="70dp"
+                                                           android:layout_height="70dp"
                                                            android:button="@color/colorPrimary"
-                                                           android:drawableTop="@drawable/ic_neutral"
+                                                           android:backgroundTint="@color/pink2"
+                                                           android:drawableBottom="@drawable/ic_netr"
                                                            android:textAlignment="center"
                                                            android:text="@string/neutral" />
 
@@ -460,10 +464,11 @@
                                                            android:background="@drawable/custom_radio_selector"
                                                            android:textColor="@drawable/custom_radio_text"
                                                            android:layout_marginStart="10sp"
-                                                           android:layout_width="60dp"
-                                                           android:layout_height="60dp"
+                                                           android:layout_width="70dp"
+                                                           android:layout_height="70dp"
                                                            android:button="@color/colorPrimary"
-                                                           android:drawableTop="@drawable/ic_bad"
+                                                           android:backgroundTint="@color/pink2"
+                                                           android:drawableBottom="@drawable/ic_badd"
                                                            android:textAlignment="center"
                                                            android:text="@string/bad" />
 
