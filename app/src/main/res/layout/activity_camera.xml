@@ -44,8 +44,9 @@
 
     <ImageView
         android:id="@+id/previewImageView"
-        android:layout_width="450dp"
+        android:layout_width="0dp"
         android:layout_height="450dp"
+        android:layout_marginHorizontal="24dp"
         android:contentDescription="@string/icon"
         android:src="@drawable/ic_place_holder"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout4"

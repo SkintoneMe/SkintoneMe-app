@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -17,7 +16,6 @@ class CameraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCameraBinding
     private var currentImageUri: Uri? = null
-    private lateinit var viewModel: CameraViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,15 +39,11 @@ class CameraActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Please select or capture an image first", Toast.LENGTH_SHORT).show()
             }
-            viewModel.isLoading.observe(this) { isLoading ->
-                binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-            }
         }
 
         binding.ivClose.setOnClickListener {
             onBackPressed()
         }
-
 
     }
 
