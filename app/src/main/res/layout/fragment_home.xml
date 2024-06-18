@@ -414,81 +414,61 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent">
 
-                                                   <ImageView
-                                                       android:id="@+id/imageView4"
-                                                       android:layout_width="35dp"
-                                                       android:layout_height="35dp"
-                                                       android:src="@drawable/ic_exited"
-                                                       app:layout_constraintBottom_toBottomOf="parent"
+                                                   <RadioGroup
+                                                       android:id="@+id/radioGroup"
+                                                       android:layout_width="wrap_content"
+                                                       android:layout_height="wrap_content"
+                                                       android:orientation="horizontal"
+                                                       android:gravity="center_horizontal"
+                                                       app:layout_constraintTop_toTopOf="parent"
                                                        app:layout_constraintStart_toStartOf="parent"
-                                                       app:layout_constraintTop_toTopOf="parent" />
+                                                       app:layout_constraintEnd_toEndOf="parent">
 
-                                                   <TextView
-                                                       android:id="@+id/textView6"
-                                                       android:layout_width="wrap_content"
-                                                       android:layout_height="wrap_content"
-                                                       android:text="@string/excited"
-                                                       android:textSize="11sp"
-                                                       app:layout_constraintEnd_toEndOf="@+id/imageView4"
-                                                       app:layout_constraintStart_toStartOf="@+id/imageView4"
-                                                       app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                                                       <RadioButton
+                                                           android:background="@drawable/custom_radio_selector"
+                                                           android:textColor="@drawable/custom_radio_text"
+                                                           android:layout_width="60dp"
+                                                           android:layout_height="60dp"
+                                                           android:button="@color/colorPrimary"
+                                                           android:drawableTop="@drawable/ic_exited"
+                                                           android:textAlignment="center"
+                                                           android:text="@string/excited" />
 
-                                                   <ImageView
-                                                       android:id="@+id/imageView5"
-                                                       android:layout_width="35dp"
-                                                       android:layout_height="35dp"
-                                                       android:layout_marginStart="12dp"
-                                                       android:src="@drawable/ic_happy"
-                                                       app:layout_constraintBottom_toBottomOf="parent"
-                                                       app:layout_constraintStart_toEndOf="@+id/imageView4"
-                                                       app:layout_constraintTop_toTopOf="parent" />
+                                                       <RadioButton
+                                                           android:background="@drawable/custom_radio_selector"
+                                                           android:layout_marginStart="10sp"
+                                                           android:layout_width="60dp"
+                                                           android:layout_height="60dp"
+                                                           android:textColor="@drawable/custom_radio_text"
+                                                           android:button="@color/colorPrimary"
+                                                           android:drawableTop="@drawable/ic_happy"
+                                                           android:textAlignment="center"
+                                                           android:text="@string/happy" />
 
-                                                   <TextView
-                                                       android:layout_width="wrap_content"
-                                                       android:layout_height="wrap_content"
-                                                       android:text="@string/happy"
-                                                       android:textSize="11sp"
-                                                       app:layout_constraintEnd_toEndOf="@+id/imageView5"
-                                                       app:layout_constraintStart_toStartOf="@+id/imageView5"
-                                                       app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+                                                       <RadioButton
+                                                           android:background="@drawable/custom_radio_selector"
+                                                           android:textColor="@drawable/custom_radio_text"
+                                                           android:layout_marginStart="10sp"
+                                                           android:layout_width="60dp"
+                                                           android:layout_height="60dp"
+                                                           android:button="@color/colorPrimary"
+                                                           android:drawableTop="@drawable/ic_neutral"
+                                                           android:textAlignment="center"
+                                                           android:text="@string/neutral" />
 
-                                                   <ImageView
-                                                       android:id="@+id/imageView6"
-                                                       android:layout_width="35dp"
-                                                       android:layout_height="35dp"
-                                                       android:layout_marginStart="12dp"
-                                                       android:src="@drawable/ic_neutral"
-                                                       app:layout_constraintBottom_toBottomOf="parent"
-                                                       app:layout_constraintStart_toEndOf="@+id/imageView5"
-                                                       app:layout_constraintTop_toTopOf="parent" />
+                                                       <RadioButton
+                                                           android:background="@drawable/custom_radio_selector"
+                                                           android:textColor="@drawable/custom_radio_text"
+                                                           android:layout_marginStart="10sp"
+                                                           android:layout_width="60dp"
+                                                           android:layout_height="60dp"
+                                                           android:button="@color/colorPrimary"
+                                                           android:drawableTop="@drawable/ic_bad"
+                                                           android:textAlignment="center"
+                                                           android:text="@string/bad" />
 
-                                                   <TextView
-                                                       android:layout_width="wrap_content"
-                                                       android:layout_height="wrap_content"
-                                                       android:text="@string/neutral"
-                                                       android:textSize="11sp"
-                                                       app:layout_constraintEnd_toEndOf="@+id/imageView6"
-                                                       app:layout_constraintStart_toStartOf="@+id/imageView6"
-                                                       app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+                                                   </RadioGroup>
 
-                                                   <ImageView
-                                                       android:id="@+id/imageView7"
-                                                       android:layout_width="35dp"
-                                                       android:layout_height="35dp"
-                                                       android:layout_marginStart="12dp"
-                                                       android:src="@drawable/ic_bad"
-                                                       app:layout_constraintBottom_toBottomOf="parent"
-                                                       app:layout_constraintStart_toEndOf="@+id/imageView6"
-                                                       app:layout_constraintTop_toTopOf="parent" />
-
-                                                   <TextView
-                                                       android:layout_width="wrap_content"
-                                                       android:layout_height="wrap_content"
-                                                       android:text="@string/bad"
-                                                       android:textSize="11sp"
-                                                       app:layout_constraintEnd_toEndOf="@+id/imageView7"
-                                                       app:layout_constraintStart_toStartOf="@+id/imageView7"
-                                                       app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
                                                </androidx.constraintlayout.widget.ConstraintLayout>
 
