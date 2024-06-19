@@ -12,12 +12,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.skintone.me.databinding.ActivityCameraBinding
 import com.skintone.me.database.getImageUri
 import com.skintone.me.database.reduceFileImage
 import com.skintone.me.database.uriToFile
 import com.skintone.me.favo.FavoriteActivity
 import com.skintone.me.favo.FavoriteEntity
+import com.skintone.me.favo.FavoriteFactory
 import com.skintone.me.favo.FavoriteViewModel
 import com.skintone.me.ui.DetailActivity
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -28,14 +30,17 @@ class CameraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCameraBinding
     private var currentImageUri: Uri? = null
-    private lateinit var predictionViewModel: PredictionViewModel
     private lateinit var favoriteViewModel: FavoriteViewModel
+    private lateinit var predictionViewModel: PredictionViewModel
 
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        favoriteViewModel = ViewModelProvider(this, FavoriteFactory.getInstance(this))[FavoriteViewModel::class.java]
+        predictionViewModel = ViewModelProvider(this, PredictionFactory.getInstance(this))[PredictionViewModel::class.java]
 
         binding.ivCamera.setOnClickListener{
             starCamera()
@@ -107,6 +112,8 @@ class CameraActivity : AppCompatActivity() {
                 }
                 val alert = dialog.create()
                 alert.show()
+            } else {
+                Toast.makeText(this, "Image Error", Toast.LENGTH_SHORT).show()
             }
         }
 
