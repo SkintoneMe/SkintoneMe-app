@@ -1,4 +1,4 @@
-package com.skintone.me.response
+package com.skintone.me.data.response
 
 data class ErrorResponse(
     val error: Boolean? = null,

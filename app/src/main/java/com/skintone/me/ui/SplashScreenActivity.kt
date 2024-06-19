@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.skintone.me.MainActivity
 import com.skintone.me.R
 import com.skintone.me.database.PreferenceManager
 import com.skintone.me.database.dataStore

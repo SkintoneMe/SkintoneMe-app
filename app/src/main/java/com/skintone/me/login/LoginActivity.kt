@@ -13,17 +13,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.skintone.me.MainActivity
+import com.skintone.me.ui.MainActivity
 import com.skintone.me.R
 import com.skintone.me.database.User
 import com.skintone.me.database.UserRepository
-import com.skintone.me.database.api.ApiConfig
+import com.skintone.me.data.retrofit.ApiConfig
 import com.skintone.me.database.dataStore
 import com.skintone.me.databinding.ActivityLoginBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {

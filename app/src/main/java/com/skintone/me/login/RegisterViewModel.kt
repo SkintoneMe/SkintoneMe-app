@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.skintone.me.database.UserRepository
-import com.skintone.me.response.ErrorResponse
-import com.skintone.me.response.RegisterResponse
+import com.skintone.me.data.response.ErrorResponse
+import com.skintone.me.data.response.RegisterResponse
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 

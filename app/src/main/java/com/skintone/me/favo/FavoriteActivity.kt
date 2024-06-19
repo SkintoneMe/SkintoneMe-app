@@ -1,13 +1,8 @@
 package com.skintone.me.favo
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.skintone.me.MainActivity
 import com.skintone.me.databinding.ActivityFavoriteBinding
-import com.skintone.me.ui.DetailActivity
 
 class FavoriteActivity : AppCompatActivity() {
 

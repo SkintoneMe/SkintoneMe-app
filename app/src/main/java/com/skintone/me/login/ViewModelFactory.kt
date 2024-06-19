@@ -3,7 +3,7 @@ package com.skintone.me.login
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.skintone.me.MainViewModel
+import com.skintone.me.ui.MainViewModel
 import com.skintone.me.database.Injection
 import com.skintone.me.database.UserRepository
 

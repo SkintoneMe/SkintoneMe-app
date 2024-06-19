@@ -1,14 +1,14 @@
-package com.skintone.me.response
+package com.skintone.me.data.response
 
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse(
-	val gender: String? = null,
-	val data: Data? = null,
-	val message: String? = null,
-	val email: String? = null,
-	val status: Boolean? = null,
-	val username: String? = null
+    val gender: String? = null,
+    val data: Data? = null,
+    val message: String? = null,
+    val email: String? = null,
+    val status: Boolean? = null,
+    val username: String? = null
 )
 
 data class Data(

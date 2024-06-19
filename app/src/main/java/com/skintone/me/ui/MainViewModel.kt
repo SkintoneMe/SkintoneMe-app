@@ -1,4 +1,4 @@
-package com.skintone.me
+package com.skintone.me.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,17 +1,15 @@
-package com.skintone.me
+package com.skintone.me.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import com.skintone.me.R
 import com.skintone.me.databinding.ActivityMainBinding
 import com.skintone.me.ui.camera.CameraActivity
 

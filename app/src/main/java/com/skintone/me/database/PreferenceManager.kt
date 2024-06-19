@@ -1,8 +1,6 @@
 package com.skintone.me.database
 
 import android.content.Context
-import android.provider.ContactsContract.DisplayNameSources.EMAIL
-import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey

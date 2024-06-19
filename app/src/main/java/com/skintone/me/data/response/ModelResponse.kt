@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ModelResponse(
 
 	@field:SerializedName("data")
-	val data: Data? = null,
+	val data: DataSkin? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
@@ -14,10 +14,16 @@ data class ModelResponse(
 	val status: String? = null
 )
 
-data class Data(
+data class DataSkin(
+
+	@field:SerializedName("colorCodeSkin")
+	val colorCodeSkin: List<String?>? = null,
 
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
+
+	@field:SerializedName("colorNamePalette")
+	val colorNamePalette: List<String?>? = null,
 
 	@field:SerializedName("predictedClassIndex")
 	val predictedClassIndex: Int? = null,
@@ -30,6 +36,9 @@ data class Data(
 
 	@field:SerializedName("predictedClassName")
 	val predictedClassName: String? = null,
+
+	@field:SerializedName("colorCodeJewelry")
+	val colorCodeJewelry: List<String?>? = null,
 
 	@field:SerializedName("id")
 	val id: String? = null,

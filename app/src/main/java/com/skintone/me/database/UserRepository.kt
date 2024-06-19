@@ -3,12 +3,13 @@ package com.skintone.me.database
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
-import com.skintone.me.database.api.ApiService
-import com.skintone.me.response.RegisterResponse
+import com.skintone.me.data.retrofit.ApiService
+import com.skintone.me.data.response.RegisterResponse
 
 
 class UserRepository (private val preferenceManager: PreferenceManager,
-                      private val apiService: ApiService) {
+                      private val apiService: ApiService
+) {
 
     suspend fun login(email: String, password: String) =
         apiService.login(email, password)

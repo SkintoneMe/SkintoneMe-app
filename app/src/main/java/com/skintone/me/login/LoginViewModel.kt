@@ -1,6 +1,5 @@
 package com.skintone.me.login
 
-import android.net.http.HttpException
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.google.gson.Gson
 import com.skintone.me.database.UserRepository
-import com.skintone.me.response.ErrorResponse
+import com.skintone.me.data.response.ErrorResponse
 import kotlinx.coroutines.Dispatchers
 
 class LoginViewModel (private val userRepository: UserRepository) : ViewModel() {
