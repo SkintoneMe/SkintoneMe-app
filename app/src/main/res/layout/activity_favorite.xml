@@ -14,21 +14,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_close"
             tools:listitem="@layout/item_favorite" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/iv_close"-->
-<!--        android:layout_width="38dp"-->
-<!--        android:layout_height="38dp"-->
-<!--        android:layout_marginEnd="24dp"-->
-<!--        android:contentDescription="@string/icon"-->
-<!--        android:background="@drawable/rounded_gray2"-->
-<!--        android:padding="8dp"-->
-<!--        android:src="@drawable/ic_close"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/button"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/button" />-->
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_margin="24dp"
+            android:background="@drawable/rounded_gray2"
+            android:contentDescription="@string/icon"
+            android:padding="8dp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
 <!--            <Button-->

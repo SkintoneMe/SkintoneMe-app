@@ -13,6 +13,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.skintone.me.database.PreferenceManager
+import com.skintone.me.database.dataStore
 import com.skintone.me.databinding.ActivityCameraBinding
 import com.skintone.me.database.getImageUri
 import com.skintone.me.database.reduceFileImage
@@ -22,6 +25,7 @@ import com.skintone.me.favo.FavoriteEntity
 import com.skintone.me.favo.FavoriteFactory
 import com.skintone.me.favo.FavoriteViewModel
 import com.skintone.me.ui.DetailActivity
+import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -32,12 +36,16 @@ class CameraActivity : AppCompatActivity() {
     private var currentImageUri: Uri? = null
     private lateinit var favoriteViewModel: FavoriteViewModel
     private lateinit var predictionViewModel: PredictionViewModel
+    private lateinit var preferenceManager: PreferenceManager
+
 
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        preferenceManager = PreferenceManager.getInstance(dataStore)
 
         favoriteViewModel = ViewModelProvider(this, FavoriteFactory.getInstance(this))[FavoriteViewModel::class.java]
         predictionViewModel = ViewModelProvider(this, PredictionFactory.getInstance(this))[PredictionViewModel::class.java]
@@ -85,8 +93,20 @@ class CameraActivity : AppCompatActivity() {
                 requestImageFile
             )
 
-            predictionViewModel.predict(imageMultipart)
+            lifecycleScope.launch {
+                val token = preferenceManager.getToken()
+                if (token != null) {
+                    predictionViewModel.predict("Bearer $token", imageMultipart)
+                } else {
+                    Toast.makeText(this@CameraActivity, "Token tidak ditemukan", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+//            val token = "Bearer " + getTokenFromPreferences()
+//            predictionViewModel.predict(token, imageMultipart)
+
         }
+
 
         predictionViewModel.prediction.observe(this) { prediction ->
             val result = prediction.data?.predictedClassName.toString()

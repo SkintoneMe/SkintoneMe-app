@@ -31,7 +31,7 @@ interface ApiService {
     @Multipart
     @POST("predict")
     suspend fun predict(
-//        @Header("Authorization") token: String,
+        @Header("Authorization") token: String,
         @Part file: MultipartBody.Part
     ) : ModelResponse
 

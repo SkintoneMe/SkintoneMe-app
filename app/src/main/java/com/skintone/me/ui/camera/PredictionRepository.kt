@@ -7,8 +7,8 @@ import okhttp3.MultipartBody
 
 class PredictionRepository(private val apiService: ApiService) {
 
-    suspend fun preditc(file: MultipartBody.Part): ModelResponse {
-        return apiService.predict(file)
+    suspend fun preditc(token: String, file: MultipartBody.Part): ModelResponse {
+        return apiService.predict(token, file)
     }
 
     companion object {

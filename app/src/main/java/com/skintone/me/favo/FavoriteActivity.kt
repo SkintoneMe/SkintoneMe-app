@@ -30,10 +30,9 @@ class FavoriteActivity : AppCompatActivity() {
             adapter.submitData(lifecycle, item)
         }
 
-
-//        binding.ivClose.setOnClickListener {
-//            onBackPressed()
-//        }
+        binding.ivClose.setOnClickListener {
+            onBackPressed()
+        }
 
     }
 }

@@ -17,11 +17,11 @@ class PredictionViewModel(private val predictionRepository: PredictionRepository
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun predict(file: MultipartBody.Part) {
+    fun predict(token: String, file: MultipartBody.Part) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                val response = predictionRepository.preditc(file)
+                val response = predictionRepository.preditc(token, file)
                 _prediction.value = response
                 _isLoading.value = false
             } catch (e: Exception) {
