@@ -39,4 +39,18 @@
     <color name="palette7">#8c001a</color>
     <color name="palette8">#d7c0d0</color>
 
+    <color name="soft_pink">#EED3D9</color>
+    <color name="soft_green">#9DC8AB</color>
+    <color name="grey">#979191</color>
+    <color name="soft_maroon">#A64E4E</color>
+
+    <color name="mid_dark2">#906D60</color>
+
+    <color name="red_cherry">#8c001a</color>
+    <color name="lavender">#d7c0d0</color>
+    <color name="purple">#64113f</color>
+    <color name="dark_grey">#2e294e</color>
+
+
+
 </resources>

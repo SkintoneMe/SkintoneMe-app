@@ -16,6 +16,8 @@ import com.skintone.me.database.PreferenceManager
 import com.skintone.me.database.dataStore
 import com.skintone.me.databinding.FragmentHomeBinding
 import com.skintone.me.favo.FavoriteActivity
+import com.skintone.me.favo.FavoriteCameraActivity
+import com.skintone.me.favo.FavoriteGalleryActivity
 import com.skintone.me.ui.camera.CameraActivity
 import com.skintone.me.ui.readmore.ReadMoreActivity
 import com.skintone.me.ui.readmore.ReadMoreActivity2
@@ -46,7 +48,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.ivFavorite.setOnClickListener {
-            startActivity(Intent(requireContext(), FavoriteActivity::class.java))
+            startActivity(Intent(requireContext(), FavoriteGalleryActivity::class.java))
         }
 
         binding.analyze.setOnClickListener {
@@ -67,7 +69,7 @@ class HomeFragment : Fragment() {
 
         lifecycleScope.launch { // CoroutineScope
             preferenceManager.getSession().first().let { user ->
-                binding.tvTitleHome.text = "Hi! " + user.name
+                binding.tvTitleHome.text = "Hi, " + user.name
             }
             Log.d("Test", preferenceManager.getSession().first().toString())
         }

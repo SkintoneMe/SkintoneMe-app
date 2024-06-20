@@ -25,6 +25,9 @@ import com.skintone.me.favo.FavoriteEntity
 import com.skintone.me.favo.FavoriteFactory
 import com.skintone.me.favo.FavoriteViewModel
 import com.skintone.me.ui.DetailActivity
+import com.skintone.me.ui.ResultCameraActivity
+import com.skintone.me.ui.ResultGalleryActivity
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -60,10 +63,15 @@ class CameraActivity : AppCompatActivity() {
 
         binding.ivAnalyzeNext.setOnClickListener {
             if (currentImageUri != null){
-//                val intent = Intent(this, DetailActivity::class.java)
-//                intent.putExtra(DetailActivity.EXTRA_IMG_URI, currentImageUri.toString())
-//                startActivity(intent)
-                predicton()
+                binding.progressBar.visibility = View.VISIBLE
+                lifecycleScope.launch {
+                    delay(3000)
+                    val intent = Intent(this@CameraActivity, ResultGalleryActivity::class.java)
+                    intent.putExtra(ResultGalleryActivity.EXTRA_IMG_URI, currentImageUri.toString())
+                    startActivity(intent)
+//                    predicton()
+                    binding.progressBar.visibility = View.GONE
+                }
             } else {
                 Toast.makeText(this, "Please select or capture an image first", Toast.LENGTH_SHORT).show()
             }

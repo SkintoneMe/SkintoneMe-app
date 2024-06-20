@@ -45,7 +45,7 @@
         android:padding="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="10sp"
+        android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,26 +165,26 @@
         app:layout_constraintVertical_bias="0.446"
         tools:visibility="visible" />
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="32dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="245dp"
-        app:srcCompat="@drawable/screenshot_2024_06_14_172603"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView11"-->
+<!--        android:layout_width="32dp"-->
+<!--        android:layout_height="24dp"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="245dp"-->
+<!--        app:srcCompat="@drawable/screenshot_2024_06_14_172603"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
 
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="34dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="307dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pw" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView12"-->
+<!--        android:layout_width="34dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="307dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/pw" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

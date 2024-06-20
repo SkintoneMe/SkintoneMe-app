@@ -66,7 +66,7 @@
     <string name="color_jewelry">Color Jewelry of Me</string>
     <string name="remove_result">Remove The Result to Favorite</string>
     <string name="add_result">Add The Result to Favorites</string>
-    <string name="gender1" > Gender </string>
+    <string name="gender1"> Gender </string>
 
     <string name="result_skintone">The Result of My Skintone is</string>
     <string name="light">Light</string>
@@ -115,5 +115,27 @@
     <string name="lavender">Lavender</string>
 
     <string name="skip_for_now">Skip For Now</string>
+
+    <string name="soft_pink">Soft Pink</string>
+    <string name="soft_green">Soft Green</string>
+    <string name="greyy">Grey</string>
+    <string name="soft_maroon">Soft Maroon</string>
+
+    <string name="csoft_pink">#EED3D9</string>
+    <string name="csoft_green">#9DC8AB</string>
+    <string name="cgreyy">#979191</string>
+    <string name="csoft_maroon">#A64E4E</string>
+
+    <string name="text_color">text color</string>
+
+<!--    <string name="red_cherry">Red_Cherry</string>-->
+<!--    <string name="lavender">Lavender</string>-->
+    <string name="purple">Purple</string>
+    <string name="dark_grey">Dark Grey</string>
+
+    <string name="cred_cherry">#8c001a</string>
+    <string name="clavender">#d7c0d0</string>
+    <string name="cpurple">#64113f</string>
+    <string name="cdark_grey">#2e294e</string>
 
 </resources>

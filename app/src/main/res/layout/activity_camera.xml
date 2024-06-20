@@ -71,26 +71,21 @@
                 android:id="@+id/iv_gallery"
                 android:layout_width="38dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="31dp"
-                android:layout_marginEnd="90dp"
+                android:contentDescription="@string/icon"
                 android:src="@drawable/ic_gallery"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/iv_camera"
+                app:layout_constraintHorizontal_bias="0.372"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/icon" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_camera"
                 android:layout_width="77dp"
                 android:layout_height="76dp"
-                android:layout_marginStart="171dp"
-                android:layout_marginEnd="62dp"
                 android:src="@drawable/ic_analyze"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/iv_analyze_next"
-                app:layout_constraintStart_toEndOf="@+id/iv_gallery"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,10 +93,10 @@
                 android:id="@+id/iv_analyze_next"
                 android:layout_width="89dp"
                 android:layout_height="92dp"
-                android:layout_marginEnd="40dp"
                 android:src="@drawable/ic_analyze_next"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.641"
                 app:layout_constraintStart_toEndOf="@+id/iv_camera"
                 app:layout_constraintTop_toTopOf="parent" />
 
