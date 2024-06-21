@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.ivFavorite.setOnClickListener {
-            startActivity(Intent(requireContext(), FavoriteGalleryActivity::class.java))
+            startActivity(Intent(requireContext(), FavoriteCameraActivity::class.java))
         }
 
         binding.analyze.setOnClickListener {

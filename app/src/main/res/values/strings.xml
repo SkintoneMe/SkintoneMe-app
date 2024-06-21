@@ -104,6 +104,8 @@
     <string name="palette6">#b91d2e</string>
     <string name="palette7">#8c001a</string>
     <string name="palette8">#d7c0d0</string>
+    <string name="palette9">#9DC8AB</string>
+    <string name="palette10">#A64E4E</string>
 
     <string name="white">White</string>
     <string name="cherry">Cherry </string>

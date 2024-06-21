@@ -66,8 +66,8 @@ class CameraActivity : AppCompatActivity() {
                 binding.progressBar.visibility = View.VISIBLE
                 lifecycleScope.launch {
                     delay(3000)
-                    val intent = Intent(this@CameraActivity, ResultGalleryActivity::class.java)
-                    intent.putExtra(ResultGalleryActivity.EXTRA_IMG_URI, currentImageUri.toString())
+                    val intent = Intent(this@CameraActivity, DetailActivity::class.java)
+                    intent.putExtra(DetailActivity.EXTRA_IMG_URI, currentImageUri.toString())
                     startActivity(intent)
 //                    predicton()
                     binding.progressBar.visibility = View.GONE

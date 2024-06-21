@@ -91,6 +91,8 @@ class DetailActivity : AppCompatActivity() {
             ResourcesCompat.getColor(resources, R.color.palette6, null),
             ResourcesCompat.getColor(resources, R.color.palette7, null),
             ResourcesCompat.getColor(resources, R.color.palette8, null),
+            ResourcesCompat.getColor(resources, R.color.palette9, null),
+            ResourcesCompat.getColor(resources, R.color.palette10, null),
         )
 
         val codeColors = listOf(
@@ -102,6 +104,8 @@ class DetailActivity : AppCompatActivity() {
             getString(R.string.palette6),
             getString(R.string.palette7),
             getString(R.string.palette8),
+            getString(R.string.palette9),
+            getString(R.string.palette10),
         )
 
         val nameColors = listOf(
@@ -113,6 +117,8 @@ class DetailActivity : AppCompatActivity() {
             getString(R.string.red_crimson),
             getString(R.string.red_cherry),
             getString(R.string.lavender),
+            getString(R.string.soft_green),
+            getString(R.string.soft_maroon),
         )
 
         // Set random color to TypeSkin
