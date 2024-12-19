@@ -2,8 +2,7 @@ const {register,
   login, 
   readUser, 
   updateUser, 
-  deleteUser,
-  postPredictHandler,
+  deleteUser
 } = require("../server/handler");
 
 const routes = [
@@ -37,18 +36,18 @@ const routes = [
         handler: deleteUser
     },
 
-  {
-    path: "/predict",
-    method: "POST",
-    handler: postPredictHandler,
-    options: {
-      payload: {
-        allow: "multipart/form-data",
-        multipart: true,
-        maxBytes: 1000 * 1000,
-      },
-    },
-  },
+  // {
+  //   path: "/predict",
+  //   method: "POST",
+  //   handler: postPredictHandler,
+  //   options: {
+  //     payload: {
+  //       allow: "multipart/form-data",
+  //       multipart: true,
+  //       maxBytes: 1000 * 1000,
+  //     },
+  //   },
+  // },
 ];
 
 module.exports = routes;
