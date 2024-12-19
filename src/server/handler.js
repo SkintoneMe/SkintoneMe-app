@@ -339,169 +339,169 @@ const crypto = require("crypto");
   
 //const { storeData, getDatas } = require("../services/storeData");
 
-const color_Code_Skin = {
-    light: ["#feddbe"],
-    dark: ["#754f3c"],
-    "mid-light": ["#e2a371"],
-    "mid-dark": ["#906d60"]
-  };  
+// const color_Code_Skin = {
+//     light: ["#feddbe"],
+//     dark: ["#754f3c"],
+//     "mid-light": ["#e2a371"],
+//     "mid-dark": ["#906d60"]
+//   };  
 
-const color_palette = {
-    light: ["#ffffff", "#ffc8dd", "#ffafcc", "#bde0fe"],
-    dark: ["#03045e", "#832161", "#363062", "#751628"],
-    "mid-light": ["#fff8e7", "#b91d2e", "#a2d6f9", "#fd969a"],
-    "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e"]
-  };
-
-  const color_Name_Palette= {
-    light: ["White", "Cherry Blush", "Dusty Pink", "Lavender blue"],
-    dark: ["Navy", "Mauve", "Grey","Maroon", "Dark pink"],
-    "mid-light": ["Cosmic Latte", "Red crimson","Sky blue", "Pink peach"],
-    "mid-dark": ["Red cherry", "Lavender", "Purple", "Dark Grey"]
-  };
-  
-//   const color_palette_img = {
-//     light: [
-//       "https://storage.googleapis.com/color_recommendation/light/ffffff.png",
-//       "https://storage.googleapis.com/color_recommendation/light/ffc8dd.png",
-//       "https://storage.googleapis.com/color_recommendation/light/ffafcc.png",
-//       "https://storage.googleapis.com/color_recommendation/light/bde0fe.png"
-//     ],
-//     dark: [
-//       "https://storage.googleapis.com/color_recommendation/dark/03045e.png",
-//       "https://storage.googleapis.com/color_recommendation/dark/832161.png",
-//       "https://storage.googleapis.com/color_recommendation/dark/363062.png",
-//       "https://storage.googleapis.com/color_recommendation/dark/751628.png"
-//     ],
-//     "mid-light": [
-//       "https://storage.googleapis.com/color_recommendation/mid-light/fff8e7.png",
-//       "https://storage.googleapis.com/color_recommendation/mid-light/b91d2e.png",
-//       "https://storage.googleapis.com/color_recommendation/mid-light/a2d6f9.png",
-//       "https://storage.googleapis.com/color_recommendation/mid-light/fd969a.png"
-//     ],
-//     "mid-dark": [
-//       "https://storage.googleapis.com/color_recommendation/mid-dark/8c001a.png",
-//       "https://storage.googleapis.com/color_recommendation/mid-dark/d7c0d0.png",
-//       "https://storage.googleapis.com/color_recommendation/mid-dark/64113f.png",
-//       "https://storage.googleapis.com/color_recommendation/mid-dark/2e294e.png"
-//     ]
+// const color_palette = {
+//     light: ["#ffffff", "#ffc8dd", "#ffafcc", "#bde0fe"],
+//     dark: ["#03045e", "#832161", "#363062", "#751628"],
+//     "mid-light": ["#fff8e7", "#b91d2e", "#a2d6f9", "#fd969a"],
+//     "mid-dark": ["#8c001a", "#d7c0d0", "#64113f", "#2e294e"]
 //   };
 
- const color_Code_Jewelry= {
-    light: ["#e2e5e6"],
-    dark: ["#ffc536"],
-    "mid-light": ["#e2e5e6"],
-    "mid-dark": ["#ffc536"],
-  };
-  
-  
-  const color_jewelry = {
-    light: ["silver"],
-    dark: ["gold"],
-    "mid-light": ["silver"],
-    "mid-dark": ["gold"],
-  };
-
-  const getColorCodeSkin = (predictedClassName) => {
-    return color_Code_Skin[predictedClassName] || [];
-  };  
-  
-  const getColorRecommendation = (predictedClassName) => {
-    return color_palette[predictedClassName] || [];
-  };
-
-  const getColorNamePalette = (predictedClassName) => {
-    return color_Name_Palette[predictedClassName] || [];
-  };
-
-  const getColorCodeJewelry = (predictedClassName) => {
-    return color_Code_Jewelry[predictedClassName] || [];
-  };  
-  
-  const getColorJewelryRecommendation = (predictedClassName) => {
-    return color_jewelry[predictedClassName] || [];
-  };
-  
-//   const getColorPaletteRecommendation = (predictedClassName) => {
-//     return color_palette_img[predictedClassName] || [];
+//   const color_Name_Palette= {
+//     light: ["White", "Cherry Blush", "Dusty Pink", "Lavender blue"],
+//     dark: ["Navy", "Mauve", "Grey","Maroon", "Dark pink"],
+//     "mid-light": ["Cosmic Latte", "Red crimson","Sky blue", "Pink peach"],
+//     "mid-dark": ["Red cherry", "Lavender", "Purple", "Dark Grey"]
 //   };
   
-  const postPredictHandler = async (request, h) => {
-    try {
-        const token = request.headers.authorization.replace('Bearer ', '');
-          const { password } = request.payload;
-          let decodedToken;
-  
-          try {
-              decodedToken = jwt.verify(token, 'secret_key');
-          } catch (err) {
-              const response = h.response({
-                  status: 'missed',
-                  message: 'User is not authorized!',
-              });
-              response.code(401);
-              return response;
-          }
-  
-          const userId = decodedToken.userId;
-      const { image } = request.payload;
-  
-      if (!image) {
-        return h
-          .response({ status: "error", message: "No image provided" })
-          .code(400);
-      }
-  
-      const { model } = request.server.app;
-  
-      const CLASS_NAMES = ["dark", "light", "mid-dark", "mid-light"];
-  
-      const { predictedClassName, predictions, predictedClassIndex } =
-        await predictClassification(
-          image, // Pass image data directly
-          model,
-          CLASS_NAMES
-        );
-  
-      const id = crypto.randomUUID();
-      const createdAt = new Date().toISOString();
-  
-      const colorCodeSkin= getColorCodeSkin(predictedClassName);
-      const recommendation = getColorRecommendation(predictedClassName);
-      const colorNamePalette= getColorNamePalette(predictedClassName);
-      const colorCodeJewelry= getColorCodeJewelry(predictedClassName);
-      const jewelryRecommendation = getColorJewelryRecommendation(predictedClassName);
-    //   const colorPaletteImg = getColorPaletteRecommendation(predictedClassName);
-  
-      const newPrediction = {
-        id,
-        predictedClassName,
-        colorCodeSkin,
-        predictions,
-        predictedClassIndex,
-        createdAt,
-        recommendation,
-        colorNamePalette,
-        colorCodeJewelry,
-        jewelryRecommendation,
-        // colorPaletteImg // Menambahkan rekomendasi perhiasan ke dalam objek newPrediction
-      };
-  
-      // await storeData(id, newPrediction);
-  
-      return h
-        .response({
-          status: "success",
-          message: "Model predicted successfully",
-          data: newPrediction,
-        })
-        .code(201);
-    } catch (error) {
-      console.error("Error predicting:", error);
-      return h
-        .response({ status: "error", message: "Failed to predict" })
-        .code(500);
-    }
-  };
+// //   const color_palette_img = {
+// //     light: [
+// //       "https://storage.googleapis.com/color_recommendation/light/ffffff.png",
+// //       "https://storage.googleapis.com/color_recommendation/light/ffc8dd.png",
+// //       "https://storage.googleapis.com/color_recommendation/light/ffafcc.png",
+// //       "https://storage.googleapis.com/color_recommendation/light/bde0fe.png"
+// //     ],
+// //     dark: [
+// //       "https://storage.googleapis.com/color_recommendation/dark/03045e.png",
+// //       "https://storage.googleapis.com/color_recommendation/dark/832161.png",
+// //       "https://storage.googleapis.com/color_recommendation/dark/363062.png",
+// //       "https://storage.googleapis.com/color_recommendation/dark/751628.png"
+// //     ],
+// //     "mid-light": [
+// //       "https://storage.googleapis.com/color_recommendation/mid-light/fff8e7.png",
+// //       "https://storage.googleapis.com/color_recommendation/mid-light/b91d2e.png",
+// //       "https://storage.googleapis.com/color_recommendation/mid-light/a2d6f9.png",
+// //       "https://storage.googleapis.com/color_recommendation/mid-light/fd969a.png"
+// //     ],
+// //     "mid-dark": [
+// //       "https://storage.googleapis.com/color_recommendation/mid-dark/8c001a.png",
+// //       "https://storage.googleapis.com/color_recommendation/mid-dark/d7c0d0.png",
+// //       "https://storage.googleapis.com/color_recommendation/mid-dark/64113f.png",
+// //       "https://storage.googleapis.com/color_recommendation/mid-dark/2e294e.png"
+// //     ]
+// //   };
 
-module.exports = {register, login, readUser, updateUser, deleteUser, postPredictHandler};
+//  const color_Code_Jewelry= {
+//     light: ["#e2e5e6"],
+//     dark: ["#ffc536"],
+//     "mid-light": ["#e2e5e6"],
+//     "mid-dark": ["#ffc536"],
+//   };
+  
+  
+//   const color_jewelry = {
+//     light: ["silver"],
+//     dark: ["gold"],
+//     "mid-light": ["silver"],
+//     "mid-dark": ["gold"],
+//   };
+
+//   const getColorCodeSkin = (predictedClassName) => {
+//     return color_Code_Skin[predictedClassName] || [];
+//   };  
+  
+//   const getColorRecommendation = (predictedClassName) => {
+//     return color_palette[predictedClassName] || [];
+//   };
+
+//   const getColorNamePalette = (predictedClassName) => {
+//     return color_Name_Palette[predictedClassName] || [];
+//   };
+
+//   const getColorCodeJewelry = (predictedClassName) => {
+//     return color_Code_Jewelry[predictedClassName] || [];
+//   };  
+  
+//   const getColorJewelryRecommendation = (predictedClassName) => {
+//     return color_jewelry[predictedClassName] || [];
+//   };
+  
+// //   const getColorPaletteRecommendation = (predictedClassName) => {
+// //     return color_palette_img[predictedClassName] || [];
+// //   };
+  
+//   const postPredictHandler = async (request, h) => {
+//     try {
+//         const token = request.headers.authorization.replace('Bearer ', '');
+//           const { password } = request.payload;
+//           let decodedToken;
+  
+//           try {
+//               decodedToken = jwt.verify(token, 'secret_key');
+//           } catch (err) {
+//               const response = h.response({
+//                   status: 'missed',
+//                   message: 'User is not authorized!',
+//               });
+//               response.code(401);
+//               return response;
+//           }
+  
+//           const userId = decodedToken.userId;
+//       const { image } = request.payload;
+  
+//       if (!image) {
+//         return h
+//           .response({ status: "error", message: "No image provided" })
+//           .code(400);
+//       }
+  
+//       const { model } = request.server.app;
+  
+//       const CLASS_NAMES = ["dark", "light", "mid-dark", "mid-light"];
+  
+//       const { predictedClassName, predictions, predictedClassIndex } =
+//         await predictClassification(
+//           image, // Pass image data directly
+//           model,
+//           CLASS_NAMES
+//         );
+  
+//       const id = crypto.randomUUID();
+//       const createdAt = new Date().toISOString();
+  
+//       const colorCodeSkin= getColorCodeSkin(predictedClassName);
+//       const recommendation = getColorRecommendation(predictedClassName);
+//       const colorNamePalette= getColorNamePalette(predictedClassName);
+//       const colorCodeJewelry= getColorCodeJewelry(predictedClassName);
+//       const jewelryRecommendation = getColorJewelryRecommendation(predictedClassName);
+//     //   const colorPaletteImg = getColorPaletteRecommendation(predictedClassName);
+  
+//       const newPrediction = {
+//         id,
+//         predictedClassName,
+//         colorCodeSkin,
+//         predictions,
+//         predictedClassIndex,
+//         createdAt,
+//         recommendation,
+//         colorNamePalette,
+//         colorCodeJewelry,
+//         jewelryRecommendation,
+//         // colorPaletteImg // Menambahkan rekomendasi perhiasan ke dalam objek newPrediction
+//       };
+  
+//       // await storeData(id, newPrediction);
+  
+//       return h
+//         .response({
+//           status: "success",
+//           message: "Model predicted successfully",
+//           data: newPrediction,
+//         })
+//         .code(201);
+//     } catch (error) {
+//       console.error("Error predicting:", error);
+//       return h
+//         .response({ status: "error", message: "Failed to predict" })
+//         .code(500);
+//     }
+//   };
+
+module.exports = {register, login, readUser, updateUser, deleteUser};
